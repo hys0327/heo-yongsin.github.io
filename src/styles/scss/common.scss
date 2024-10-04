@@ -1,0 +1,104 @@
+// styles.scss
+#portfolio {
+  display: flex;
+  background-color: lime;
+  height: 100vh;
+  header {
+    width: 200px;
+    .header-main {
+      background: #17181b;
+      position: fixed;
+      z-index: 999;
+      height: 100%;
+      overflow-x: hidden;
+      border-right: 1px solid #202226;
+      .wrapper {
+        .content {
+          .image-container {
+            position: relative;
+            .header-name {
+              font-size: 14px;
+              width: 100%;
+              line-height: 4;
+              background: rgba(0, 161, 224, 0.5);
+              color: #fff;
+              position: absolute;
+              transform: translateX(-50%);
+              bottom: 0px;
+              left: 50%;
+              text-align: center;
+            }
+          }
+          .nav-menu {
+            ul {
+              li {
+                &:hover {
+                  background: red;
+                }
+                &.home {
+                  .icon {
+                    background: $icon-home $bg-properties;
+                  }
+                }
+                &.about {
+                  .icon {
+                    background: $icon-about $bg-properties;
+                  }
+                }
+                &.resume {
+                  .icon {
+                    background: $icon-resume $bg-properties;
+                  }
+                }
+                &.portfolio {
+                  .icon {
+                    background: $icon-portfolio $bg-properties;
+                  }
+                }
+                button {
+                  padding: 14px;
+                  width: 100%;
+                  display: flex;
+                  align-items: center;
+                  span {
+                    display: inline-block;
+                    color: #fff;
+                    &.icon {
+                      width: 16px;
+                      height: 16px;
+                      margin-right: 10px;
+                      filter: invert(99%) sepia(100%) saturate(0%)
+                        hue-rotate(103deg) brightness(103%) contrast(100%);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  main {
+    position: relative;
+    background: #2c2d2f;
+    width: calc(100% - 200px);
+    .banner-content {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+    }
+  }
+}
+
+// 반응형 설정
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column; // 작은 화면에서는 세로 방향으로 변경
+  }
+
+  .left-menu {
+    width: 100%; // 너비를 100%로 설정
+  }
+}
