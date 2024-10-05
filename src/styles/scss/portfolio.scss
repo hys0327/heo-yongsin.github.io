@@ -1,0 +1,81 @@
+@import "variables";
+
+.portfolio-container {
+  margin: 0 auto;
+  max-width: 70%;
+  .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
+    margin: 50px 0;
+    h2 {
+      font-size: 36px;
+      color: #00a3e1;
+    }
+    span {
+      &.icon {
+        width: 36px;
+        height: 39.6px;
+        display: inline-block;
+        background: $icon-about $bg-properties;
+        filter: invert(53%) sepia(13%) saturate(4687%) hue-rotate(160deg)
+          brightness(91%) contrast(104%);
+      }
+    }
+  }
+}
+
+.menu-nav {
+  margin-bottom: 20px;
+}
+
+.menu-nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.menu {
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.menu:hover {
+  background-color: #d0d0d0;
+}
+
+.submenu {
+  margin-top: 10px;
+}
+
+.submenu-btn {
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #76c7c0;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.submenu-btn:hover {
+  background-color: #4a9b8a;
+}
+
+.work-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.work-item {
+  padding: 15px;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
