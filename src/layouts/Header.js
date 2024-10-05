@@ -39,7 +39,7 @@ const Header = () => {
                   </button>
                 </li>
                 <li className="portfolio">
-                  <button onClick={() => navigate("/resume")}>
+                  <button onClick={() => navigate("/portfolio")}>
                     <span className="icon"></span>
                     <span className="text">Portfolio</span>
                   </button>

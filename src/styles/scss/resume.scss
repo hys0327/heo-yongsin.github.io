@@ -1,0 +1,179 @@
+.resume-bg {
+  background: #2c2d2f;
+}
+.resume-container {
+  margin: 0 auto;
+  max-width: 70%;
+  .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
+    margin: 50px 0;
+    h2 {
+      font-size: 36px;
+      color: #00a3e1;
+    }
+    span {
+      &.icon {
+        width: 36px;
+        height: 39.6px;
+        display: inline-block;
+        background: $icon-about $bg-properties;
+        filter: invert(53%) sepia(13%) saturate(4687%) hue-rotate(160deg)
+          brightness(91%) contrast(104%);
+      }
+    }
+  }
+  .cont-resume {
+    color: #fff;
+    display: flex;
+    margin-bottom: 100px;
+    .left,
+    .right {
+      flex: 0 0 50%;
+      .title_wrap {
+        text-align: center;
+        margin-bottom: 50px;
+        .title {
+          font-size: 22px;
+          display: inline-block;
+          border-bottom: 2px solid #00a3e1;
+          padding-bottom: 10px;
+        }
+      }
+      .experience {
+        padding-left: 50px;
+        li {
+          position: relative;
+          // padding: 5px 20px;
+          &:nth-child(1) {
+            margin-bottom: 100px;
+          }
+          .line-left {
+            width: 2px;
+            height: 100%;
+            // background-color: #e1e1e1;
+            position: absolute;
+            background-color: #00a3e1;
+
+            &::before {
+              content: "";
+              transform: translateX(-50%);
+              left: 50%;
+              bottom: -15px;
+              width: 6px;
+              height: 6px;
+              -webkit-border-radius: 50%;
+              border-radius: 50%;
+              border: 2px solid #00a3e1;
+              position: absolute;
+            }
+            &::after {
+              content: "";
+              transform: translateX(-50%);
+              top: -15px;
+              left: 50%;
+              width: 6px;
+              height: 6px;
+              -webkit-border-radius: 50%;
+              border-radius: 50%;
+              border: 2px solid #00a3e1;
+              position: absolute;
+            }
+          }
+          .content {
+            // height: 150px;
+            margin-left: 10px;
+            padding: 0 20px;
+            h4 {
+              font-size: 18px;
+              line-height: 1.5;
+            }
+            h5 {
+              font-size: 12px;
+              color: #00a3e1;
+              margin: 10px 0;
+            }
+            .info {
+              line-height: 1.5;
+            }
+          }
+          .year {
+            height: 100%;
+            left: -10px;
+            top: 0;
+            position: absolute;
+            span {
+              display: inline-block;
+              font-size: 16px;
+              position: absolute;
+              -webkit-transform: translateX(-120%);
+              -ms-transform: translateX(-120%);
+              transform: translateX(-120%);
+              color: #ffffff;
+              &.to {
+                top: -18px;
+              }
+              &.from {
+                bottom: -18px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .skill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    padding-bottom: 50px;
+    .left,
+    .right {
+      // background: coral;
+      flex: 0 0 45%;
+      .title_wrap {
+        text-align: center;
+        .title {
+          margin-bottom: 50px;
+          font-size: 22px;
+          font-weight: 700;
+        }
+      }
+      .skill-container {
+        margin: 30px 0;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        .progress-info {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          span {
+            display: inline-block;
+            margin-right: 10px;
+            font-weight: bold;
+          }
+        }
+        .progress-bar {
+          width: 100%;
+          background-color: #e0e0e0;
+          border-radius: 10px;
+          overflow: hidden;
+          height: 20px;
+          position: relative;
+          .progress {
+            background-color: #00a3e1; /* 원하는 색상으로 변경 가능 */
+            height: 100%;
+            width: 0%;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+}

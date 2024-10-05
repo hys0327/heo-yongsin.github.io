@@ -1,7 +1,8 @@
 @import "variables";
 
 .about-container {
-  max-width: 1040px;
+  // max-width: 1040px;
+  max-width: 70%;
   // height: 100%;
   margin: 0 auto;
   .heading {
@@ -90,30 +91,42 @@
       justify-content: space-between;
       align-items: center;
       .item {
-        &:first-child {
-          background: black;
+        padding: 0 15px;
+        h4 {
+          &.role_name {
+            font-size: 18px;
+          }
         }
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
         .icon {
-          width: 36px;
-          height: 36px;
+          margin-bottom: 20px;
           filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(39deg)
             brightness(103%) contrast(101%);
         }
+        .desc {
+          margin-top: 20px;
+          text-align: center;
+        }
         &:nth-child(1) {
           .icon {
+            width: 50px;
+            height: 40.6px;
             background: $icon-development $bg-properties;
           }
         }
         &:nth-child(2) {
           .icon {
+            width: 44.2px;
+            height: 40.6px;
             background: $icon-design $bg-properties;
           }
         }
         &:nth-child(3) {
           .icon {
+            width: 39.3px;
+            height: 40.6px;
             background: $icon-planning $bg-properties;
           }
         }
