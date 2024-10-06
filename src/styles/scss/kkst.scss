@@ -1,0 +1,131 @@
+#project {
+  .project-container {
+    min-height: 100vh;
+    &.kkst {
+      height: 100vh;
+      header {
+        nav {
+          .top {
+            padding: 0 16px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .time {
+              .text {
+                font-weight: 700;
+              }
+            }
+            .icon_wrap {
+              display: flex;
+              align-items: center;
+              .icon {
+                display: inline-block;
+                filter: invert(14%) sepia(11%) saturate(179%) hue-rotate(314deg)
+                  brightness(92%) contrast(96%);
+                &.wifi {
+                  background: no-repeat center / cover
+                    url("../icons/icon_wifi.svg");
+                  height: 13.33px;
+                  // 원본비율에 맞춰서 자동 조정하는 속성
+                  aspect-ratio: 14.67 / 11.33;
+                  margin-right: 3.33px;
+                }
+                &.status {
+                  background: no-repeat center / cover
+                    url("../icons/icon_status.svg");
+                  width: 13.33px;
+                  aspect-ratio: 13.33 / 13.33;
+                  margin-right: 10px;
+                }
+                &.battery {
+                  background: no-repeat center / cover
+                    url("../icons/icon_battery.svg");
+                  width: 10px;
+                  aspect-ratio: 8 / 13.33;
+                }
+              }
+            }
+          }
+          .btm {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 16px 20px;
+            .logo {
+              background: no-repeat center / cover
+                url("../images/kkst-logo.png");
+              width: 64px;
+              // 원본비율에 맞춰서 자동 조정하는 속성
+              aspect-ratio: 64 / 25.95;
+            }
+            .icon_wrap {
+              display: flex;
+              align-items: center;
+              span {
+                &.a {
+                  background: no-repeat center / cover
+                    url("../icons/icon_cart.svg");
+                  width: 20px;
+                  aspect-ratio: 20 / 20;
+                  margin-right: 26px;
+                }
+                &.b {
+                  background: no-repeat center / cover
+                    url("../icons/icon_search.svg");
+                  width: 20px;
+                  aspect-ratio: 20 / 23.2;
+                }
+              }
+            }
+          }
+        }
+      }
+      main {
+      }
+      footer {
+        // background: lime;
+        height: 48px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        nav {
+          .nav-items {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 36px;
+            .item {
+              display: flex;
+              align-items: center;
+              width: 48px;
+              height: 48px;
+              .icon {
+                &.nav-arrow {
+                  background: no-repeat center / cover
+                    url("../icons/icon_nav_arrow.svg");
+                  width: 24px;
+                  aspect-ratio: 24 / 24;
+                }
+                &.nav-home {
+                  background: no-repeat center / cover
+                    url("../icons/icon_nav_home.svg");
+                  width: 24px;
+                  aspect-ratio: 24 / 24;
+                }
+                &.nav-menu {
+                  background: no-repeat center / cover
+                    url("../icons/icon_nav_menu.svg");
+                  width: 24px;
+                  aspect-ratio: 24 / 24;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
