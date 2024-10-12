@@ -36,29 +36,35 @@ const Portfolio = () => {
   return (
     <div className="portfolio-container">
       <div className="heading">
-        <h2>My Works</h2>
+        <h2>My Work</h2>
+        <span className="icon"></span>
       </div>
       <div className="work-item">
-        <h3>Project A</h3>
-        <div className="submenu">
-          <button
-            className="submenu-btn"
-            onClick={() => {
-              setSelectedWork("ProjectA");
-              setShowMobileView(true);
-            }}
-          >
-            Mobile View
-          </button>
-          <button
-            className="submenu-btn"
-            onClick={() => {
-              setSelectedWork("ProjectA");
-              setShowDesktopView(true);
-            }}
-          >
-            Desktop View
-          </button>
+        <div className="left">
+          <h3>KKST 화면 개선</h3>
+          <div className="img"></div>
+        </div>
+        <div className="right">
+          <div className="submenu">
+            <button
+              className="submenu-btn"
+              onClick={() => {
+                setSelectedWork("ProjectA");
+                setShowMobileView(true);
+              }}
+            >
+              Mobile View
+            </button>
+            <button
+              className="submenu-btn"
+              onClick={() => {
+                setSelectedWork("ProjectA");
+                setShowDesktopView(true);
+              }}
+            >
+              Desktop View
+            </button>
+          </div>
         </div>
       </div>
 
