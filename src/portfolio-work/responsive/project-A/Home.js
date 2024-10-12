@@ -107,7 +107,6 @@ const Home = ({
         </div>
         <div className="review"></div>
       </div>
-      <div className="test"></div>
     </div>
   );
 };

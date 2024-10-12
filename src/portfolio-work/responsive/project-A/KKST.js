@@ -218,9 +218,42 @@ const KKST = () => {
           </nav>
         </header>
 
-        <main>{renderPage()}</main>
+        <main style={{ background: view === "cart" ? "#eee" : "transparent" }}>
+          {renderPage()}
+        </main>
+        {view === "cart" && (
+          <footer className="f_cart">
+            <div className="app_footer">
+              <div
+                className="payment"
+                // onClick={() => {
+                //   setPopupVisible(true);
+                //   setClickedButton("payment");
+                // }}
+              >
+                <div className="amount-wrap">
+                  <span className="amount">70,000원</span>
+                  <span className="text">결제하기</span>
+                </div>
+              </div>
+            </div>
+            <nav>
+              <ul className="nav-items">
+                <li className="item">
+                  <span className="icon nav-arrow"></span>
+                </li>
+                <li className="item">
+                  <span className="icon nav-home"></span>
+                </li>
+                <li className="item">
+                  <span className="icon nav-menu"></span>
+                </li>
+              </ul>
+            </nav>
+          </footer>
+        )}
         {view === "home" && (
-          <footer>
+          <footer className="f_home">
             <div className="app_footer">
               <div className="favorite">
                 <span className="icon icon_favorite"></span>
