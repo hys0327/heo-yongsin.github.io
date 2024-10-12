@@ -12,7 +12,7 @@ const Home = () => {
           backgroundImage: `url(${process.env.PUBLIC_URL}/images/bg.jpg)`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          height: "calc(100vh - 68px)",
+          // height: "calc(100vh - 68px)",
           filter: "brightness(0.5)",
           // opacity: "0.5",
         }}

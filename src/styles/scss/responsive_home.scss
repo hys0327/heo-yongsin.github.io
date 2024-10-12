@@ -1,7 +1,7 @@
 @import "variables";
 
 // 데스크탑
-@media screen and (max-width: 2400px) {
+@media screen and (min-width: 933px) {
   body {
     #portfolio {
       header {
@@ -13,8 +13,8 @@
   }
 }
 
-// 모바일
-@media screen and (max-width: 768px) {
+// 모바일 기본
+@media screen and (max-width: 932px) {
   body {
     #portfolio {
       display: block;
@@ -102,6 +102,9 @@
       main {
         width: 100%;
         .home-container {
+          .home-bg {
+            height: calc(100vh - 68px);
+          }
           .banner-content {
             h1 {
               font-size: 1.8rem;
@@ -116,6 +119,68 @@
               font-size: 1.25rem !important;
               span {
                 font-size: 1.25rem !important;
+              }
+            }
+          }
+        }
+        .about-container {
+          margin: 0;
+          max-width: 100%;
+          padding: 0 32px;
+          .heading {
+            margin-bottom: 30px;
+            h2 {
+              font-size: 24px;
+            }
+            .icon {
+              width: 20px;
+            }
+          }
+          .cont-about {
+            flex-flow: column nowrap;
+            margin-bottom: 30px;
+            .title {
+              font-size: 18px;
+              font-weight: 800;
+            }
+            .desc {
+              font-weight: lighter;
+            }
+            .left {
+              max-width: 100%;
+              margin-bottom: 30px;
+              padding-bottom: 30px;
+              border-bottom: 1px solid #ddd;
+            }
+            .right {
+              border-bottom: 1px solid #ddd;
+              padding-bottom: 30px;
+              ul {
+                li {
+                  span {
+                    font-weight: lighter;
+                  }
+                }
+              }
+            }
+          }
+          .job-about {
+            .title_wrap {
+              .title {
+                font-size: 18px;
+                padding-bottom: 3px;
+              }
+            }
+            .cont-wrap {
+              flex-flow: column nowrap;
+              .item {
+                margin-bottom: 60px;
+                &:last-child {
+                  margin-bottom: none;
+                }
+                h4 {
+                  font-size: 16px;
+                }
               }
             }
           }
