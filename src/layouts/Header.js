@@ -1,13 +1,25 @@
 //rafce
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
+  // 메뉴를 닫는 함수
+  const handleMenuClick = () => {
+    setMenuOpen(false); // 메뉴를 닫음
+  };
 
   return (
     <header>
-      <div className="header-main">
+      <div className="header-main desktop">
         <div className="wrapper">
           <div className="content">
             <div className="image-container">
@@ -50,6 +62,63 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <div className="header-main mobile">
+        <div className="logo">
+          <span className="img"></span>
+          <span className="text">Yongsin</span>
+        </div>
+        <div className="menu">
+          <span className="icon icon_hambuger" onClick={toggleMenu}></span>
+        </div>
+      </div>
+      <nav className={`nav-m-menu ${isMenuOpen ? "active" : ""}`}>
+        <ul>
+          <li>
+            <button
+              onClick={() => {
+                navigate("/");
+                handleMenuClick();
+              }}
+              className={location.pathname === "/" ? "active" : ""}
+            >
+              <span className="text">Home</span>
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => {
+                navigate("/about");
+                handleMenuClick();
+              }}
+              className={location.pathname === "/about" ? "active" : ""}
+            >
+              <span className="text">About</span>
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => {
+                navigate("/resume");
+                handleMenuClick();
+              }}
+              className={location.pathname === "/resume" ? "active" : ""}
+            >
+              <span className="text">Resume</span>
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => {
+                navigate("/portfolio");
+                handleMenuClick();
+              }}
+              className={location.pathname === "/portfolio" ? "active" : ""}
+            >
+              <span className="text">Portfolio</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };

@@ -1,74 +1,75 @@
 // styles.scss
 #portfolio {
   display: flex;
-  background-color: lime;
   height: 100vh;
   header {
     width: 200px;
     .header-main {
-      background: #17181b;
-      position: fixed;
-      z-index: 999;
-      height: 100%;
-      overflow-x: hidden;
-      border-right: 1px solid #202226;
-      .wrapper {
-        .content {
-          .image-container {
-            position: relative;
-            .header-name {
-              font-size: 14px;
-              width: 100%;
-              line-height: 4;
-              background: rgba(0, 161, 224, 0.5);
-              color: #fff;
-              position: absolute;
-              transform: translateX(-50%);
-              bottom: 0px;
-              left: 50%;
-              text-align: center;
+      &.desktop {
+        background: #17181b;
+        position: fixed;
+        z-index: 999;
+        height: 100%;
+        overflow-x: hidden;
+        border-right: 1px solid #202226;
+        .wrapper {
+          .content {
+            .image-container {
+              position: relative;
+              .header-name {
+                font-size: 14px;
+                width: 100%;
+                line-height: 4;
+                background: rgba(0, 161, 224, 0.5);
+                color: #fff;
+                position: absolute;
+                transform: translateX(-50%);
+                bottom: 0px;
+                left: 50%;
+                text-align: center;
+              }
             }
-          }
-          .nav-menu {
-            ul {
-              li {
-                &:hover {
-                  background: red;
-                }
-                &.home {
-                  .icon {
-                    background: $icon-home $bg-properties;
+            .nav-menu {
+              ul {
+                li {
+                  &:hover {
+                    background: red;
                   }
-                }
-                &.about {
-                  .icon {
-                    background: $icon-about $bg-properties;
+                  &.home {
+                    .icon {
+                      background: $icon-home $bg-properties;
+                    }
                   }
-                }
-                &.resume {
-                  .icon {
-                    background: $icon-resume $bg-properties;
+                  &.about {
+                    .icon {
+                      background: $icon-about $bg-properties;
+                    }
                   }
-                }
-                &.portfolio {
-                  .icon {
-                    background: $icon-portfolio $bg-properties;
+                  &.resume {
+                    .icon {
+                      background: $icon-resume $bg-properties;
+                    }
                   }
-                }
-                button {
-                  padding: 14px;
-                  width: 100%;
-                  display: flex;
-                  align-items: center;
-                  span {
-                    display: inline-block;
-                    color: #fff;
-                    &.icon {
-                      width: 16px;
-                      height: 16px;
-                      margin-right: 10px;
-                      filter: invert(99%) sepia(100%) saturate(0%)
-                        hue-rotate(103deg) brightness(103%) contrast(100%);
+                  &.portfolio {
+                    .icon {
+                      background: $icon-portfolio $bg-properties;
+                    }
+                  }
+                  button {
+                    padding: 14px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    span {
+                      display: inline-block;
+                      color: #fff;
+                      &.icon {
+                        width: 16px;
+                        height: 16px;
+                        margin-right: 10px;
+                        filter: invert(99%) sepia(100%) saturate(0%)
+                          hue-rotate(103deg) brightness(103%) contrast(100%);
+                      }
                     }
                   }
                 }

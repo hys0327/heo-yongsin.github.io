@@ -1,18 +1,9 @@
 //rafce
 import React from "react";
 import TypingAnimation from "../common/TypingAnimation";
-/* // redux test
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { increment, decrement } from "../../features/counterSlice"; */
+import "../../styles/scss/responsive_home.scss";
 
 const Home = () => {
-  /* // 상태 조회
-  // const count = useSelector((state) => state.counter.value);
-  // const dispatch = useDispatch();
-
-  // 상태 변경 확인
-  // console.log("현재 값", count); */
   return (
     <div className="home-container">
       <div
@@ -21,14 +12,14 @@ const Home = () => {
           backgroundImage: `url(${process.env.PUBLIC_URL}/images/bg.jpg)`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          height: "100vh",
+          height: "calc(100vh - 68px)",
           filter: "brightness(0.5)",
           // opacity: "0.5",
         }}
       ></div>
       <div className="banner-content">
         <h1>
-          안녕하세요.
+          <span className="text">안녕하세요.</span>
           <span
             style={{
               fontWeight: "900",
