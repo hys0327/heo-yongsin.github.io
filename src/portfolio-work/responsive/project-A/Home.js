@@ -8,15 +8,14 @@ const Home = ({
   selectedProduct,
   selectedSize,
   handleSizeSelect,
-  handleProductSelectFromPopup,
   setPopupVisible,
   productData,
-  purchasedProducts,
+  setClickedButton,
 }) => {
   // 선택하지 않은 색상 필터링 -> mid-thumb 에 노출
   const filteredColors = colors.filter((color) => color !== selectedImage);
   return (
-    <>
+    <div className="home-view">
       <div className="thumb-wrap">
         <div className="image-wrap">
           <div className={`image ${selectedImage}`}></div>
@@ -103,14 +102,13 @@ const Home = ({
             handleSizeSelect={handleSizeSelect}
             setPopupVisible={setPopupVisible}
             productData={productData}
-            purchasedProducts={purchasedProducts}
-            handleProductSelectFromPopup={handleProductSelectFromPopup}
+            setClickedButton={setClickedButton}
           />
         </div>
         <div className="review"></div>
       </div>
       <div className="test"></div>
-    </>
+    </div>
   );
 };
 

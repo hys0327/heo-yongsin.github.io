@@ -1,66 +1,99 @@
 import React, { useState, useEffect, useRef } from "react";
 import Home from "./Home";
 import Cart from "./Cart";
-import ReactDOM from "react-dom"; // 팝업을 위한 portal
+import SizePopup from "./components/SizePopup";
+import PaymentPopup from "./components/PaymentPopup";
 
 const KKST = () => {
   const [currentTime, setCurrentTime] = useState("");
   const [selectedImage, setSelectedImage] = useState("green");
   const [view, setView] = useState("home"); // 화면 전환 상태 관리
   const [isPopupVisible, setPopupVisible] = useState(false); // 팝업 창 상태
+  const [clickedButton, setClickedButton] = useState(""); // 클릭한 버튼 종류
   const [selectedProduct, setSelectedProduct] = useState(""); // 선택한 상품
   const [selectedSize, setSelectedSize] = useState(""); // 선택한 사이즈
-  const containerRef = useRef(null); // project-container 참조 생성
 
   const colors = ["green", "ivory", "black"];
   const productData = {
-    제품1: {
-      90: {
-        totalLength: 100,
-        shoulderWidth: 40,
-        chestWidth: 50,
-        sleeveLength: 60,
-      },
-      95: {
-        totalLength: 105,
-        shoulderWidth: 42,
-        chestWidth: 52,
-        sleeveLength: 62,
-      },
-      100: {
-        totalLength: 110,
-        shoulderWidth: 44,
-        chestWidth: 54,
-        sleeveLength: 64,
+    르아르: {
+      name: "에브리데이 케이블 카라 반팔 니트 - 7colors",
+      purchasedSize: 95, // 사용자가 구매한 사이즈
+      sizes: {
+        90: {
+          totalLength: 100,
+          shoulderWidth: 40,
+          chestWidth: 50,
+          sleeveLength: 60,
+        },
+        95: {
+          totalLength: 105,
+          shoulderWidth: 42,
+          chestWidth: 52,
+          sleeveLength: 62,
+        },
+        100: {
+          totalLength: 110,
+          shoulderWidth: 44,
+          chestWidth: 54,
+          sleeveLength: 64,
+        },
       },
     },
-    제품2: {
-      90: {
-        totalLength: 102,
-        shoulderWidth: 41,
-        chestWidth: 51,
-        sleeveLength: 61,
+    카멜워크: {
+      name: "웨이크보드 반팔티셔츠",
+      purchasedSize: 90, // 사용자가 구매한 사이즈
+      sizes: {
+        90: {
+          totalLength: 102,
+          shoulderWidth: 41,
+          chestWidth: 51,
+          sleeveLength: 61,
+        },
+        95: {
+          totalLength: 107,
+          shoulderWidth: 43,
+          chestWidth: 53,
+          sleeveLength: 63,
+        },
+        100: {
+          totalLength: 112,
+          shoulderWidth: 45,
+          chestWidth: 55,
+          sleeveLength: 65,
+        },
       },
-      95: {
-        totalLength: 107,
-        shoulderWidth: 43,
-        chestWidth: 53,
-        sleeveLength: 63,
-      },
-      100: {
-        totalLength: 112,
-        shoulderWidth: 45,
-        chestWidth: 55,
-        sleeveLength: 65,
+    },
+    로얄라이프: {
+      name: "RL701 비 더 프렌즈 반팔",
+      purchasedSize: "90", // 사용자가 구매한 사이즈
+      sizes: {
+        90: {
+          totalLength: 85,
+          shoulderWidth: 38,
+          chestWidth: 48,
+          sleeveLength: 20,
+        },
+        95: {
+          totalLength: 90,
+          shoulderWidth: 40,
+          chestWidth: 50,
+          sleeveLength: 22,
+        },
+        100: {
+          totalLength: 95,
+          shoulderWidth: 42,
+          chestWidth: 52,
+          sleeveLength: 24,
+        },
       },
     },
   };
 
-  const purchasedProducts = [
-    { name: "제품1", sizes: [90, 95, 100] },
-    { name: "제품2", sizes: [90, 95, 100] },
-    { name: "제품3", sizes: [85, 90, 95, 100] },
-  ];
+  // purchasedProducts를 productData에서 동적으로 추출
+  const purchasedProducts = Object.keys(productData).map((key) => ({
+    name: key, // 제품명
+    sizes: productData[key].sizes, // 해당 제품의 사이즈 배열
+  }));
 
   useEffect(() => {
     const updateClock = () => {
@@ -110,14 +143,12 @@ const KKST = () => {
             selectedImage={selectedImage}
             handleColorClick={handleColorClick}
             colors={colors}
-            setPopupVisible={setPopupVisible} // 팝업 상태 관리 전달
-            isPopupVisible={isPopupVisible} // 팝업 상태 전달
             selectedProduct={selectedProduct} // 선택된 상품 전달
             selectedSize={selectedSize} // 선택된 사이즈 전달
             handleSizeSelect={handleSizeSelect} // 사이즈 선택 핸들러 전달
-            handleProductSelectFromPopup={handleProductSelectFromPopup} // 팝업 선택 핸들러 전달
+            setPopupVisible={setPopupVisible} // 팝업 상태 관리 전달
             productData={productData} // 제품 데이터 전달
-            purchasedProducts={purchasedProducts} // 구매한 제품 리스트 전달
+            setClickedButton={setClickedButton}
           />
         );
       case "cart":
@@ -126,99 +157,100 @@ const KKST = () => {
         return <Home />;
     }
   };
-
-  // 팝업
-  const renderPopup = () => (
-    <>
-      <div className="dimmed" onClick={() => setPopupVisible(false)}></div>
-      <div className="popup">
-        <div className="popup-content">
-          <h3>구매내역에서 상품 선택</h3>
-          <ul>
-            <li>
-              <button
-                onClick={() => handleProductSelectFromPopup({ name: "제품1" })}
-              >
-                제품1
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => handleProductSelectFromPopup({ name: "제품2" })}
-              >
-                제품2
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => handleProductSelectFromPopup({ name: "제품3" })}
-              >
-                제품3
-              </button>
-            </li>
-          </ul>
-          <button onClick={() => setPopupVisible(false)}>닫기</button>
-        </div>
-      </div>
-    </>
-  );
+  const renderPopup = () => {
+    switch (clickedButton) {
+      case "size":
+        return (
+          <SizePopup
+            setPopupVisible={setPopupVisible}
+            purchasedProducts={purchasedProducts}
+            productData={productData}
+            handleProductSelectFromPopup={handleProductSelectFromPopup}
+            selectedProduct={selectedProduct}
+          />
+        );
+      case "payment":
+        return (
+          <PaymentPopup
+            setPopupVisible={setPopupVisible}
+            // 필요한 props 추가
+          />
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
-    <div className="project-container kkst" ref={containerRef}>
-      <header>
-        <nav>
-          <div className="top">
-            <div className="time">
-              <span className="text">{currentTime}</span>
-            </div>
-            <div className="icon_wrap">
-              <span className="icon wifi"></span>
-              <span className="icon status"></span>
-              <span className="icon battery"></span>
-            </div>
-          </div>
-          <div className="btm">
-            <div className="logo" onClick={handleLogoClick}></div>{" "}
-            {/* 로고 클릭 시 홈으로 이동 */}
-            <div className="icon_wrap">
-              <span className="icon share"></span>
-              <span className="icon cart" onClick={handleCartClick}></span>{" "}
-              {/* 장바구니 클릭 */}
-              <span className="icon search"></span>
-            </div>
-          </div>
-        </nav>
-      </header>
-
-      <main>{renderPage()}</main>
-
-      <footer>
-        <div className="app_footer">
-          <div className="favorite">
-            <span className="icon icon_favorite"></span>
-          </div>
-          <div className="payment">
-            <span className="text">구매하기</span>
-          </div>
+    <div className="wrap">
+      {isPopupVisible && (
+        <div className="popup-container">
+          <div className="dimmed"></div>
+          {renderPopup()}
         </div>
-        <nav>
-          <ul className="nav-items">
-            <li className="item">
-              <span className="icon nav-arrow"></span>
-            </li>
-            <li className="item">
-              <span className="icon nav-home"></span>
-            </li>
-            <li className="item">
-              <span className="icon nav-menu"></span>
-            </li>
-          </ul>
-        </nav>
-      </footer>
-      {/* Portal을 통해 Popup을 project-container 하위로 렌더링 */}
-      {isPopupVisible &&
-        containerRef.current &&
-        ReactDOM.createPortal(renderPopup(), containerRef.current)}
+      )}
+      <div className="project-container kkst">
+        <header>
+          <nav>
+            <div className="top">
+              <div className="time">
+                <span className="text">{currentTime}</span>
+              </div>
+              <div className="icon_wrap">
+                <span className="icon wifi"></span>
+                <span className="icon status"></span>
+                <span className="icon battery"></span>
+              </div>
+            </div>
+            <div className="btm">
+              <div className="logo" onClick={handleLogoClick}></div>{" "}
+              {/* 로고 클릭 시 홈으로 이동 */}
+              <div className="icon_wrap">
+                <span className="icon share"></span>
+                <span
+                  className="icon cart"
+                  onClick={handleCartClick}
+                ></span>{" "}
+                {/* 장바구니 클릭 */}
+                <span className="icon search"></span>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <main>{renderPage()}</main>
+        {view === "home" && (
+          <footer>
+            <div className="app_footer">
+              <div className="favorite">
+                <span className="icon icon_favorite"></span>
+              </div>
+              <div
+                className="payment"
+                onClick={() => {
+                  setPopupVisible(true);
+                  setClickedButton("payment");
+                }}
+              >
+                <span className="text">구매하기</span>
+              </div>
+            </div>
+            <nav>
+              <ul className="nav-items">
+                <li className="item">
+                  <span className="icon nav-arrow"></span>
+                </li>
+                <li className="item">
+                  <span className="icon nav-home"></span>
+                </li>
+                <li className="item">
+                  <span className="icon nav-menu"></span>
+                </li>
+              </ul>
+            </nav>
+          </footer>
+        )}
+      </div>
     </div>
   );
 };

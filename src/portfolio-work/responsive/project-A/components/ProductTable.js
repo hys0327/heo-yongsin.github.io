@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ProductTable = ({
   selectedProduct,
@@ -6,14 +6,14 @@ const ProductTable = ({
   handleSizeSelect,
   setPopupVisible,
   productData,
+  setClickedButton,
 }) => {
   // 선택한 상품에 따른 사이즈 데이터 가져오기
-  const selectedProductData =
-    productData[selectedProduct]?.[selectedSize] || {};
+  const selectedProductData = productData[selectedProduct];
 
   // 선택한 상품이 productData에 있는지 확인 후, 사이즈 옵션 추출
-  const availableSizes = productData[selectedProduct]
-    ? Object.keys(productData[selectedProduct])
+  const availableSizes = selectedProductData
+    ? Object.keys(selectedProductData.sizes)
     : [];
   return (
     <>
@@ -41,17 +41,17 @@ const ProductTable = ({
           <div className="cell bg">제품 명</div>
           <div className="cell product-info">
             <span className="selected-prod">
-              {selectedProduct || "선택된 상품이 없습니다."}
+              {productData[selectedProduct]?.name || "선택된 상품이 없습니다."}
             </span>
             <select
               onChange={(e) => handleSizeSelect(e.target.value)}
-              value={selectedSize}
+              value={selectedSize || ""}
               disabled={!selectedProduct}
             >
               <option value="">사이즈 선택</option>
               {availableSizes.map((size) => (
                 <option key={size} value={size}>
-                  {size}
+                  {size} {/* 사이즈를 표시 */}
                 </option>
               ))}
             </select>
@@ -61,10 +61,18 @@ const ProductTable = ({
         {/* 선택한 사이즈에 따른 제품 치수 */}
         <div className="row">
           <div className="cell bg">제품 치수</div>
-          <div className="cell">{selectedProductData.totalLength || "-"}</div>
-          <div className="cell">{selectedProductData.shoulderWidth || "-"}</div>
-          <div className="cell">{selectedProductData.chestWidth || "-"}</div>
-          <div className="cell">{selectedProductData.sleeveLength || "-"}</div>
+          <div className="cell">
+            {selectedProductData?.sizes[selectedSize]?.totalLength || "-"}
+          </div>
+          <div className="cell">
+            {selectedProductData?.sizes[selectedSize]?.shoulderWidth || "-"}
+          </div>
+          <div className="cell">
+            {selectedProductData?.sizes[selectedSize]?.chestWidth || "-"}
+          </div>
+          <div className="cell">
+            {selectedProductData?.sizes[selectedSize]?.sleeveLength || "-"}
+          </div>
         </div>
         <div className="row">
           <div className="cell bg">M</div>
@@ -89,10 +97,15 @@ const ProductTable = ({
         </div>
       </div>
       <div className="product-buttons">
-        <button onClick={() => setPopupVisible(true)}>구매내역 선택하기</button>
-        <button onClick={() => alert("실측 직접 입력하기 클릭")}>
-          실측 직접 입력하기
+        <button
+          onClick={() => {
+            setPopupVisible(true);
+            setClickedButton("size");
+          }}
+        >
+          구매내역 선택하기
         </button>
+        <button>실측 직접 입력하기</button>
       </div>
     </>
   );
