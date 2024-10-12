@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/cartSlice";
+//
 import ColorsSelect from "./ColorsSelect";
 import SizesSelect from "./SizesSelect";
 
-const PaymentPopup = ({ setPopupVisible }) => {
+const PaymentPopup = ({ setPopupVisible, setView }) => {
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedPrice, setSelectedPrice] = useState(0);
   const [quantity, setQuantity] = useState(1); // 기본 수량 1로 설정
   const [openSelect, setOpenSelect] = useState(null); // 열린 select 상태 관리
+  //
+  const dispatch = useDispatch();
 
   const colorOptions = [
     { label: { korean: "블랙", english: "black" }, color: "#000000" },
@@ -18,10 +23,10 @@ const PaymentPopup = ({ setPopupVisible }) => {
   ];
 
   const sizeOptions = [
-    { letterSize: "S", numSize: "90", price: 35000 },
-    { letterSize: "M", numSize: "95", price: 35000 },
-    { letterSize: "L", numSize: "100", price: 35000 },
-    { letterSize: "XL", numSize: "105", price: 35000 },
+    { letterSize: "S", numSize: "90", price: 38900 },
+    { letterSize: "M", numSize: "95", price: 38900 },
+    { letterSize: "L", numSize: "100", price: 38900 },
+    { letterSize: "XL", numSize: "105", price: 38900 },
   ];
 
   const handleColorSelect = (option) => {
@@ -51,6 +56,25 @@ const PaymentPopup = ({ setPopupVisible }) => {
     setSelectedSize(""); // 사이즈 초기화
     setSelectedPrice(0); // 가격 초기화
     setQuantity(1); // 수량 초기화
+  };
+
+  // 장바구니에 아이템 추가
+  const handleAddToCart = () => {
+    const item = {
+      id: new Date().getTime(), // 유니크 ID 생성
+      color: selectedColor,
+      size: selectedSize,
+      price: selectedPrice,
+      quantity: quantity,
+    };
+
+    // Redux 스토어에 아이템 추가
+    dispatch(addToCart(item));
+
+    setView("cart");
+
+    // 팝업 닫기
+    setPopupVisible(false);
   };
 
   return (
@@ -136,7 +160,7 @@ const PaymentPopup = ({ setPopupVisible }) => {
                 </span>
               </div>
               <div className="btm">
-                <button>장바구니 담기</button>
+                <button onClick={handleAddToCart}>장바구니 담기</button>
                 <button>바로 구매하기</button>
               </div>
             </div>

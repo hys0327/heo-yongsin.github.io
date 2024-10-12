@@ -52,7 +52,7 @@ const Home = ({
         <span className="text">부클 오픈 카라 반팔 니트 5colors</span>
       </div>
       <div className="prod-price">
-        <span className="origin-price">55,000원</span>
+        <span className="origin-price">50,750원</span>
         <div className="sale">
           <span className="sale-ratio">29%</span>
           <span className="sale-price">￦38,900원</span>

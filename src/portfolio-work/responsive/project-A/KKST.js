@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+//
 import Home from "./Home";
 import Cart from "./Cart";
 import SizePopup from "./components/SizePopup";
 import PaymentPopup from "./components/PaymentPopup";
+import CartFooter from "./components/CartFooter";
 
 const KKST = () => {
   const [currentTime, setCurrentTime] = useState("");
@@ -12,7 +16,6 @@ const KKST = () => {
   const [clickedButton, setClickedButton] = useState(""); // 클릭한 버튼 종류
   const [selectedProduct, setSelectedProduct] = useState(""); // 선택한 상품
   const [selectedSize, setSelectedSize] = useState(""); // 선택한 사이즈
-
   const colors = ["green", "ivory", "black"];
   const productData = {
     르아르: {
@@ -173,6 +176,7 @@ const KKST = () => {
         return (
           <PaymentPopup
             setPopupVisible={setPopupVisible}
+            setView={setView}
             // 필요한 props 추가
           />
         );
@@ -182,109 +186,83 @@ const KKST = () => {
   };
 
   return (
-    <div className="wrap">
-      {isPopupVisible && (
-        <div className="popup-container">
-          <div className="dimmed"></div>
-          {renderPopup()}
-        </div>
-      )}
-      <div className="project-container kkst">
-        <header>
-          <nav>
-            <div className="top">
-              <div className="time">
-                <span className="text">{currentTime}</span>
-              </div>
-              <div className="icon_wrap">
-                <span className="icon wifi"></span>
-                <span className="icon status"></span>
-                <span className="icon battery"></span>
-              </div>
-            </div>
-            <div className="btm">
-              <div className="logo" onClick={handleLogoClick}></div>{" "}
-              {/* 로고 클릭 시 홈으로 이동 */}
-              <div className="icon_wrap">
-                <span className="icon share"></span>
-                <span
-                  className="icon cart"
-                  onClick={handleCartClick}
-                ></span>{" "}
-                {/* 장바구니 클릭 */}
-                <span className="icon search"></span>
-              </div>
-            </div>
-          </nav>
-        </header>
-
-        <main style={{ background: view === "cart" ? "#eee" : "transparent" }}>
-          {renderPage()}
-        </main>
-        {view === "cart" && (
-          <footer className="f_cart">
-            <div className="app_footer">
-              <div
-                className="payment"
-                // onClick={() => {
-                //   setPopupVisible(true);
-                //   setClickedButton("payment");
-                // }}
-              >
-                <div className="amount-wrap">
-                  <span className="amount">70,000원</span>
-                  <span className="text">결제하기</span>
+    <Provider store={store}>
+      <div className="wrap">
+        {isPopupVisible && (
+          <div className="popup-container">
+            <div className="dimmed"></div>
+            {renderPopup()}
+          </div>
+        )}
+        <div className="project-container kkst">
+          <header>
+            <nav>
+              <div className="top">
+                <div className="time">
+                  <span className="text">{currentTime}</span>
+                </div>
+                <div className="icon_wrap">
+                  <span className="icon wifi"></span>
+                  <span className="icon status"></span>
+                  <span className="icon battery"></span>
                 </div>
               </div>
-            </div>
-            <nav>
-              <ul className="nav-items">
-                <li className="item">
-                  <span className="icon nav-arrow"></span>
-                </li>
-                <li className="item">
-                  <span className="icon nav-home"></span>
-                </li>
-                <li className="item">
-                  <span className="icon nav-menu"></span>
-                </li>
-              </ul>
-            </nav>
-          </footer>
-        )}
-        {view === "home" && (
-          <footer className="f_home">
-            <div className="app_footer">
-              <div className="favorite">
-                <span className="icon icon_favorite"></span>
+              <div className="btm">
+                <div className="logo" onClick={handleLogoClick}></div>{" "}
+                {/* 로고 클릭 시 홈으로 이동 */}
+                <div className="icon_wrap">
+                  <span className="icon share"></span>
+                  <span
+                    className="icon cart"
+                    onClick={handleCartClick}
+                  ></span>{" "}
+                  {/* 장바구니 클릭 */}
+                  <span className="icon search"></span>
+                </div>
               </div>
-              <div
-                className="payment"
-                onClick={() => {
-                  setPopupVisible(true);
-                  setClickedButton("payment");
-                }}
-              >
-                <span className="text">구매하기</span>
-              </div>
-            </div>
-            <nav>
-              <ul className="nav-items">
-                <li className="item">
-                  <span className="icon nav-arrow"></span>
-                </li>
-                <li className="item">
-                  <span className="icon nav-home"></span>
-                </li>
-                <li className="item">
-                  <span className="icon nav-menu"></span>
-                </li>
-              </ul>
             </nav>
-          </footer>
-        )}
+          </header>
+
+          <main
+            style={{ background: view === "cart" ? "#eee" : "transparent" }}
+          >
+            {renderPage()}
+          </main>
+          {view === "cart" && <CartFooter />}
+          {view === "home" && (
+            <footer className="f_home">
+              <div className="app_footer">
+                <div className="favorite">
+                  <span className="icon icon_favorite"></span>
+                </div>
+                <div
+                  className="payment"
+                  onClick={() => {
+                    setPopupVisible(true);
+                    setClickedButton("payment");
+                  }}
+                >
+                  <span className="text">구매하기</span>
+                </div>
+              </div>
+              <nav>
+                <ul className="nav-items">
+                  <li className="item">
+                    <span className="icon nav-arrow"></span>
+                  </li>
+                  <li className="item">
+                    <span className="icon nav-home"></span>
+                  </li>
+                  <li className="item">
+                    <span className="icon nav-menu"></span>
+                  </li>
+                </ul>
+              </nav>
+            </footer>
+          )}
+        </div>
       </div>
-    </div>
+    </Provider>
   );
 };
 

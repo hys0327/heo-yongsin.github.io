@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "./features/cartSlice"; // clearCart 액션 가져오기
 
 const Cart = () => {
+  const dispatch = useDispatch();
   const [selectedDelivery, setSelectedDelivery] = useState("today");
+  //
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   const handleDeliveryChange = (value) => {
     setSelectedDelivery(value);
   };
+
+  console.log("cartItems", cartItems);
+
+  // 컴포넌트 언마운트 시 장바구니 초기화
+  useEffect(() => {
+    return () => {
+      // 컴포넌트가 언마운트되면 clearCart 호출
+      dispatch(clearCart());
+    };
+  }, [dispatch]);
 
   return (
     <div className="cart-view">
@@ -59,27 +74,54 @@ const Cart = () => {
         </div>
       </div>
       <div className="delivery-prod">
-        <div className="header">
+        {/* <div className="header"> */}
+        <div className={cartItems.length === 0 ? "header notItems" : "header"}>
           <h2>주문상품</h2>
-          <span className="icon icon_arrow"></span>
+          {cartItems.length > 0 ? (
+            <span className="icon icon_arrow bottom"></span>
+          ) : (
+            <span className="icon icon_arrow top"></span>
+          )}
         </div>
-        <div className="item-wrap">
-          <div className="left">
-            <div className="prod-img"></div>
-            <div className="prod-info">
-              <span className="text">부클 오픈 카라 반팔 니트</span>
-              <span className="text">사이즈 : L / 100</span>
-              <span className="text">색상 : 그린</span>
-              <span className="text">수량 : 2개</span>
+        {cartItems.length > 0 && (
+          <div className="item-wrap">
+            <div className="left">
+              <div className="prod-img"></div>
+              {cartItems.length > 0 &&
+                cartItems.map((item) => (
+                  <div className="prod-info" key={item.id}>
+                    <span className="text">부클 오픈 카라 반팔 니트</span>
+                    <span className="text">{`사이즈 : ${item.size} / ${
+                      item.size === "L"
+                        ? "100"
+                        : item.size === "M"
+                        ? "95"
+                        : item.size === "S"
+                        ? "90"
+                        : ""
+                    }`}</span>
+                    <span className="text">{`색상 : ${item.color}`}</span>
+                    <span className="text">{`수량 : ${item.quantity}`}</span>
+                  </div>
+                ))}
+            </div>
+            <div className="right">
+              {cartItems.length > 0 &&
+                cartItems.map((item) => (
+                  <div className="prod-payment" key={item.id}>
+                    {/* 기존 금액 (할인 전 가격이나 다른 정보라면 item에 해당 값이 있어야 함) */}
+                    <span className="amount origin">{`${(
+                      50750 * item.quantity
+                    ).toLocaleString()}원`}</span>
+                    {/* 실제 결제 금액 */}
+                    <span className="amount">
+                      {(item.price * item.quantity).toLocaleString()}원
+                    </span>
+                  </div>
+                ))}
             </div>
           </div>
-          <div className="right">
-            <div className="prod-payment">
-              <span className="amount origin">101,800</span>
-              <span className="amount">70,000</span>
-            </div>
-          </div>
-        </div>
+        )}
       </div>
       <div className="sale-wrap">
         <div className="header">
