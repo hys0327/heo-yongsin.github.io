@@ -1,7 +1,7 @@
 // styles.scss
 #portfolio {
   display: flex;
-  height: 100vh;
+  height: 100%;
   header {
     width: 200px;
     .header-main {
@@ -84,6 +84,7 @@
     position: relative;
     background: #2c2d2f;
     width: calc(100% - 200px);
+    overflow-y: auto;
     .banner-content {
       position: absolute;
       transform: translate(-50%, -50%);
