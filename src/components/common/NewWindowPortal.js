@@ -23,6 +23,7 @@ const NewWindowPortal = ({ children, title, width, height, onClose }) => {
           <title>${title}</title>
           <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/reset.css" />
           <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/kkst.css" />
+          <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/responsive_kkst.css" />
         </head>
         <body>
           <div id="project"></div>

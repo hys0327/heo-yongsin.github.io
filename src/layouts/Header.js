@@ -33,25 +33,39 @@ const Header = () => {
             <nav className="nav-menu">
               <ul>
                 <li className="home">
-                  <button onClick={() => navigate("/")}>
+                  <button
+                    onClick={() => navigate("/")}
+                    className={location.pathname === "/" ? "active" : ""}
+                  >
                     <span className="icon"></span>
                     <span className="text">Home</span>
                   </button>
                 </li>
                 <li className="about">
-                  <button onClick={() => navigate("/about")}>
+                  <button
+                    onClick={() => navigate("/about")}
+                    className={location.pathname === "/about" ? "active" : ""}
+                  >
                     <span className="icon"></span>
                     <span className="text">About Me</span>
                   </button>
                 </li>
                 <li className="resume">
-                  <button onClick={() => navigate("/resume")}>
+                  <button
+                    onClick={() => navigate("/resume")}
+                    className={location.pathname === "/resume" ? "active" : ""}
+                  >
                     <span className="icon"></span>
                     <span className="text">Resume</span>
                   </button>
                 </li>
                 <li className="portfolio">
-                  <button onClick={() => navigate("/portfolio")}>
+                  <button
+                    onClick={() => navigate("/portfolio")}
+                    className={
+                      location.pathname === "/portfolio" ? "active" : ""
+                    }
+                  >
                     <span className="icon"></span>
                     <span className="text">Portfolio</span>
                   </button>
@@ -63,10 +77,10 @@ const Header = () => {
         </div>
       </div>
       <div className="header-main mobile">
-        <div className="logo">
+        <button className="logo" onClick={() => navigate("/")}>
           <span className="img"></span>
-          <span className="text">Yongsin</span>
-        </div>
+          <span className="text">HYS` Portfolio</span>
+        </button>
         <div className="menu">
           <span className="icon icon_hambuger" onClick={toggleMenu}></span>
         </div>

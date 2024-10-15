@@ -1,0 +1,261 @@
+@import "variables";
+
+// 데스크탑
+@media screen and (min-width: 1368px) {
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* 전체 페이지 스크롤을 활성화 */
+  }
+  body {
+    #project {
+      .wrap {
+        .project-container {
+          width: 1320px;
+          margin: 0 auto;
+          &.kkst {
+            header {
+              border: 1px solid #ddd;
+              nav {
+                width: 1320px;
+                margin: 0 auto;
+                .top {
+                }
+                .btm {
+                  // justify-content: flex-start;
+                  padding: 20px 0;
+                  .logo {
+                    width: 90px;
+                    margin-right: 20px;
+                  }
+                  .h_menu {
+                    display: flex;
+                    align-items: center;
+                    ul {
+                      display: flex;
+                      align-items: stretch;
+                      justify-content: space-between;
+                      li {
+                        display: flex;
+                        justify-content: center;
+                        margin-right: 20px;
+                        position: relative;
+                        &:last-child {
+                          margin-right: 30px;
+                          input {
+                            width: 300px;
+                            padding: 10px 20px;
+                            padding-right: 50px;
+                          }
+                          span {
+                            display: inline-block;
+                            position: absolute;
+                            right: 20px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            &.icon {
+                              &.icon_search {
+                                background: no-repeat center / cover
+                                  url("../icons/icon_search.svg");
+                                width: 20px;
+                                aspect-ratio: 1 / 1;
+                              }
+                            }
+                          }
+                        }
+                        button {
+                          padding: 0 30px;
+                        }
+                      }
+                    }
+                    .icon_wrap {
+                      display: flex;
+                      align-items: center;
+                      span {
+                        &.icon {
+                          &.icon_user {
+                            background: no-repeat center / cover
+                              url("../icons/icon_user.svg");
+                            width: 24px;
+                            aspect-ratio: 1 / 1;
+                            margin-right: 30px;
+                          }
+                          &.icon_cart {
+                            background: no-repeat center / cover
+                              url("../icons/icon_cart.svg");
+                            width: 24px;
+                            aspect-ratio: 1 / 1;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            main {
+              overflow-y: visible;
+              margin-top: 81px;
+              height: calc(100vh - 81px);
+              position: relative;
+              .home-view {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                &.desktop {
+                  .content-wrap {
+                    .content {
+                      .prod-img {
+                        background: no-repeat center / cover
+                          url(../images/thumb_large_green.png);
+                        width: 500px;
+                        flex-shrink: 0;
+                        aspect-ratio: 430 / 544;
+                      }
+                    }
+                  }
+                  .right-wrap {
+                    position: fixed;
+                    width: 250px;
+                    top: 81px;
+                    right: calc((100vw - 1320px) / 2);
+                    height: calc(100vh - 81px);
+                    padding: 20px;
+                    border-left: 1px solid #ddd;
+                    .select-wrap {
+                      margin-bottom: 20px;
+                      .custom-select {
+                        cursor: pointer;
+                        font-size: 14px;
+                        border: 1px solid #ddd;
+                        border-radius: 5px;
+                        &:first-child {
+                          margin-bottom: 10px;
+                        }
+                        .select-box {
+                          padding: 15px;
+                          &.notSelected {
+                            border-bottom: none;
+                          }
+                          &.selected {
+                            border-bottom: 1px solid #ddd;
+                          }
+                        }
+                        .options-list {
+                          .option-item {
+                            padding: 10px 16px;
+                          }
+                        }
+                      }
+                    }
+                    .prod-wrap {
+                      padding: 16px;
+                      background: #f9f9f9;
+                      border: 1px solid #ddd;
+                      border-radius: 5px;
+                      font-size: 14px;
+                      .title {
+                        font-size: 16px;
+                        margin-bottom: 20px;
+                      }
+                      .prod-top {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .prod-top-left {
+                          max-width: 150px;
+                          span {
+                            display: block;
+                            &.prod_name {
+                              margin-bottom: 10px;
+                              text-overflow: ellipsis;
+                              white-space: nowrap;
+                              overflow: hidden;
+                            }
+                          }
+                        }
+                        .prod-top-right {
+                          span {
+                            display: inline-block;
+                            &.icon {
+                              background: no-repeat center / cover
+                                url("../icons/icon_close.svg");
+                              width: 14px;
+                              aspect-ratio: 1 / 1;
+                            }
+                          }
+                        }
+                      }
+                      .prod-btm {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-top: 15px;
+                        .prod-btm-left {
+                          display: flex;
+                          align-items: center;
+                          .num {
+                            margin: 0 6px;
+                            background: #fff;
+                            width: 30px;
+                            height: 24px;
+                            border: 1px solid #ddd;
+                            text-align: center;
+                            line-height: 24px;
+                          }
+                          button {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: 32px;
+                            width: 32px;
+                            .icon {
+                              &.icon_minus {
+                                background: no-repeat center / cover
+                                  url("../icons/icon_minus.svg");
+                                width: 20px;
+                                aspect-ratio: 14 / 1.5;
+                              }
+                              &.icon_plus {
+                                background: no-repeat center / cover
+                                  url("../icons/icon_plus.svg");
+                                width: 20px;
+                                aspect-ratio: 11.5 / 11.5;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    .payment-wrap {
+                      background: red;
+                      // right-wrap padding만큼 뺀 값
+                      width: calc(100% - 40px);
+                      position: absolute;
+                      // right-wrap padding만큼 뺀 값
+                      bottom: 40px;
+                    }
+                  }
+                }
+              }
+            }
+            footer {
+              &.f_home {
+                nav {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 모바일 기본
+@media screen and (max-width: 932px) {
+  body {
+  }
+}

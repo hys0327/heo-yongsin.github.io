@@ -8,7 +8,7 @@ import SizePopup from "./components/SizePopup";
 import PaymentPopup from "./components/PaymentPopup";
 import CartFooter from "./components/CartFooter";
 
-const KKST = () => {
+const KKST = ({ viewType }) => {
   const [currentTime, setCurrentTime] = useState("");
   const [selectedImage, setSelectedImage] = useState("green");
   const [view, setView] = useState("home"); // 화면 전환 상태 관리
@@ -16,6 +16,7 @@ const KKST = () => {
   const [clickedButton, setClickedButton] = useState(""); // 클릭한 버튼 종류
   const [selectedProduct, setSelectedProduct] = useState(""); // 선택한 상품
   const [selectedSize, setSelectedSize] = useState(""); // 선택한 사이즈
+  //
   const colors = ["green", "ivory", "black"];
   const productData = {
     르아르: {
@@ -152,6 +153,8 @@ const KKST = () => {
             setPopupVisible={setPopupVisible} // 팝업 상태 관리 전달
             productData={productData} // 제품 데이터 전달
             setClickedButton={setClickedButton}
+            viewType={viewType}
+            setView={setView}
           />
         );
       case "cart":
@@ -185,6 +188,10 @@ const KKST = () => {
     }
   };
 
+  useEffect(() => {
+    console.log("viewType", viewType);
+  }, []);
+
   return (
     <Provider store={store}>
       <div className="wrap">
@@ -197,28 +204,68 @@ const KKST = () => {
         <div className="project-container kkst">
           <header>
             <nav>
-              <div className="top">
-                <div className="time">
-                  <span className="text">{currentTime}</span>
+              {viewType === "mobile" ? (
+                <div className="top">
+                  <div className="time">
+                    <span className="text">{currentTime}</span>
+                  </div>
+                  <div className="icon_wrap">
+                    <span className="icon wifi"></span>
+                    <span className="icon status"></span>
+                    <span className="icon battery"></span>
+                  </div>
                 </div>
-                <div className="icon_wrap">
-                  <span className="icon wifi"></span>
-                  <span className="icon status"></span>
-                  <span className="icon battery"></span>
-                </div>
-              </div>
+              ) : (
+                <></>
+              )}
               <div className="btm">
                 <div className="logo" onClick={handleLogoClick}></div>{" "}
-                {/* 로고 클릭 시 홈으로 이동 */}
-                <div className="icon_wrap">
-                  <span className="icon share"></span>
-                  <span
-                    className="icon cart"
-                    onClick={handleCartClick}
-                  ></span>{" "}
-                  {/* 장바구니 클릭 */}
-                  <span className="icon search"></span>
-                </div>
+                {viewType === "mobile" ? (
+                  <div className="icon_wrap">
+                    <span className="icon share"></span>
+                    <span
+                      className="icon cart"
+                      onClick={handleCartClick}
+                    ></span>{" "}
+                    <span className="icon search"></span>
+                  </div>
+                ) : (
+                  <div className="h_menu">
+                    <ul>
+                      <li className="menu">
+                        <button>추천</button>
+                      </li>
+                      <li className="menu">
+                        <button>랭킹</button>
+                      </li>
+                      <li className="menu">
+                        <button>브랜드</button>
+                      </li>
+                      <li className="menu">
+                        <button>할인</button>
+                      </li>
+                      <li className="menu">
+                        <button>커밍순</button>
+                      </li>
+                      <li className="menu">
+                        <button>큐레이션</button>
+                      </li>
+                      <li>
+                        <label htmlFor="search"></label>
+                        <input
+                          type="text"
+                          id="search"
+                          placeholder="검색어를 입력하세요."
+                        />
+                        <span className="icon icon_search"></span>
+                      </li>
+                    </ul>
+                    <div className="icon_wrap">
+                      <span className="icon icon_user"></span>
+                      <span className="icon icon_cart"></span>
+                    </div>
+                  </div>
+                )}
               </div>
             </nav>
           </header>
@@ -228,8 +275,8 @@ const KKST = () => {
           >
             {renderPage()}
           </main>
-          {view === "cart" && <CartFooter />}
-          {view === "home" && (
+          {viewType === "mobile" && view === "cart" && <CartFooter />}
+          {viewType === "mobile" && view === "home" && (
             <footer className="f_home">
               <div className="app_footer">
                 <div className="favorite">

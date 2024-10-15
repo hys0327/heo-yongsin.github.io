@@ -25,6 +25,13 @@ const SizesSelect = ({
     }
   }, [selectedSize, options]);
 
+  useEffect(() => {
+    console.log("options", options);
+    console.log("selectedSize", selectedSize);
+    console.log("isOpen", isOpen);
+    console.log("closeSelect", closeSelect);
+  }, []);
+
   return (
     <div className="select size">
       <div

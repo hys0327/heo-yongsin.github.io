@@ -20,7 +20,7 @@ const Portfolio = () => {
   const renderMobileComponent = () => {
     if (selectedWork === "ProjectA") {
       // Project A의 MobileView 컴포넌트
-      return <KKST />;
+      return <KKST viewType="mobile" />;
     }
     return null;
   };
@@ -28,7 +28,7 @@ const Portfolio = () => {
   // 새 창에 띄울 작업물 결정 (Desktop View)
   const renderDesktopComponent = () => {
     if (selectedWork === "ProjectA") {
-      return <KKST />; // Project A의 DesktopView 컴포넌트
+      return <KKST viewType="desktop" />; // Project A의 DesktopView 컴포넌트
     }
     return null;
   };
@@ -84,8 +84,8 @@ const Portfolio = () => {
       {showDesktopView && (
         <NewWindowPortal
           title={`${selectedWork} Desktop View`}
-          width={1440}
-          height={720}
+          width={1920}
+          height={1080}
           onClose={handleWindowClose} // 창을 닫을 때 상태 초기화
         >
           {renderDesktopComponent()}

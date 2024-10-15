@@ -33,26 +33,34 @@
               ul {
                 li {
                   &:hover {
-                    background: red;
+                    // background: rgba(0, 163, 225, 0.1);
                   }
                   &.home {
                     .icon {
                       background: $icon-home $bg-properties;
+                      width: 16px;
+                      aspect-ratio: 20 / 22;
                     }
                   }
                   &.about {
                     .icon {
                       background: $icon-about $bg-properties;
+                      width: 16px;
+                      aspect-ratio: 1 / 1;
                     }
                   }
                   &.resume {
                     .icon {
                       background: $icon-resume $bg-properties;
+                      width: 16px;
+                      aspect-ratio: 1 / 1;
                     }
                   }
                   &.portfolio {
                     .icon {
                       background: $icon-portfolio $bg-properties;
+                      width: 16px;
+                      aspect-ratio: 20 / 18;
                     }
                   }
                   button {
@@ -60,12 +68,19 @@
                     width: 100%;
                     display: flex;
                     align-items: center;
+                    &.active {
+                      span {
+                        &.text {
+                          color: #00a3e1;
+                          font-weight: 700;
+                        }
+                      }
+                    }
                     span {
                       display: inline-block;
                       color: #fff;
+                      font-weight: lighter;
                       &.icon {
-                        width: 16px;
-                        height: 16px;
                         margin-right: 10px;
                         filter: invert(99%) sepia(100%) saturate(0%)
                           hue-rotate(103deg) brightness(103%) contrast(100%);
