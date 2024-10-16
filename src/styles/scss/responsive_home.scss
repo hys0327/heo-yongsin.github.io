@@ -248,9 +248,10 @@
         }
         .portfolio-container {
           margin: 0;
+          margin-bottom: 50px;
           max-width: 100%;
           padding: 0 32px;
-          height: calc(100vh - 68px);
+          // height: calc(100vh - 68px);
           .heading {
             margin-bottom: 30px;
             h2 {
