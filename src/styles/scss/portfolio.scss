@@ -1,9 +1,12 @@
 @import "variables";
 
+body {
+  height: 100vh;
+}
 .portfolio-container {
   margin: 0 auto;
   max-width: 70%;
-  height: 100vh;
+  padding-bottom: 50px;
   .heading {
     display: flex;
     align-items: center;
@@ -28,37 +31,85 @@
     }
   }
   .work-item {
-    padding: 15px;
+    padding: 30px 40px;
     background-color: #fafafa;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     border-radius: 5px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    h3 {
-      margin-bottom: 20px;
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0px;
     }
     .left {
-      flex: 0 0 30%;
+      margin-right: 50px;
       .img {
-        background: $bg-properties $img-kkst-mobile;
-        width: 100px;
-        aspect-ratio: 1229 / 2578;
+        background: $bg-properties $img-kkst-mockup;
+        width: 300px;
+        aspect-ratio: 2539 / 2118;
       }
     }
     .right {
-      flex: 0 0 70%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      .project-info {
+        .title-wrap {
+          display: flex;
+          align-items: center;
+          margin-bottom: 15px;
+          .text {
+            &:nth-child(1) {
+              font-weight: 600;
+              width: 90px;
+            }
+            &:nth-child(2) {
+              margin: 0 10px;
+            }
+          }
+        }
+        .category {
+          display: flex;
+          align-items: center;
+          margin-bottom: 15px;
+          .text {
+            &:nth-child(1) {
+              font-weight: 600;
+              width: 90px;
+            }
+            &:nth-child(2) {
+              margin: 0 10px;
+            }
+          }
+        }
+        .desc {
+          margin-bottom: 15px;
+          .title {
+            margin-bottom: 10px;
+          }
+          .text {
+            margin-bottom: 10px;
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+        .skill {
+          .title {
+            margin-bottom: 10px;
+          }
+        }
+      }
       .submenu {
         .submenu-btn {
           margin-right: 10px;
           padding: 10px 20px;
-          background-color: #76c7c0;
+          background-color: #00a3e1;
           border: none;
           color: white;
           cursor: pointer;
           border-radius: 5px;
           &:hover {
-            background-color: #4a9b8a;
+            background-color: #65b7d7;
           }
         }
       }
