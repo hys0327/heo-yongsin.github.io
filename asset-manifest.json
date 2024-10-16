@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/heo-yongsin.github.io/static/css/main.e330ecf3.css",
-    "main.js": "/heo-yongsin.github.io/static/js/main.995e6773.js",
+    "main.js": "/heo-yongsin.github.io/static/js/main.ab41d844.js",
     "static/media/KKST-M-img.png": "/heo-yongsin.github.io/static/media/KKST-M-img.8e468fa3de097d164a87.png",
     "static/media/profile-img.jpg": "/heo-yongsin.github.io/static/media/profile-img.77eb0a22e8be987a3df5.jpg",
     "static/media/icon_resume.svg": "/heo-yongsin.github.io/static/media/icon_resume.7480ceb88da6eb03b61b.svg",
@@ -16,10 +16,10 @@
     "static/media/icon_hambuger.svg": "/heo-yongsin.github.io/static/media/icon_hambuger.6e2d206ab3daabde3015.svg",
     "static/media/icon_about2.svg": "/heo-yongsin.github.io/static/media/icon_about2.1ed022a6dfb6fb8cfe31.svg",
     "main.e330ecf3.css.map": "/heo-yongsin.github.io/static/css/main.e330ecf3.css.map",
-    "main.995e6773.js.map": "/heo-yongsin.github.io/static/js/main.995e6773.js.map"
+    "main.ab41d844.js.map": "/heo-yongsin.github.io/static/js/main.ab41d844.js.map"
   },
   "entrypoints": [
     "static/css/main.e330ecf3.css",
-    "static/js/main.995e6773.js"
+    "static/js/main.ab41d844.js"
   ]
 }
