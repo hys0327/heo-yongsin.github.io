@@ -33,6 +33,17 @@ const Portfolio = () => {
     return null;
   };
 
+  // 데스크탑 뷰 접근 제한 로직
+  const handleDesktopClick = () => {
+    const isMobile = window.innerWidth <= 932; // 모바일 환경 판별 (768px 이하를 모바일로 간주)
+    if (isMobile) {
+      alert("데스크탑 환경에서만 가능합니다.");
+    } else {
+      setSelectedWork("ProjectA");
+      setShowDesktopView(true);
+    }
+  };
+
   return (
     <div className="portfolio-container">
       <div className="heading">
@@ -58,8 +69,12 @@ const Portfolio = () => {
             <button
               className="submenu-btn"
               onClick={() => {
-                setSelectedWork("ProjectA");
-                setShowDesktopView(true);
+                if (window.innerWidth <= 932) {
+                  alert("데스크탑 환경에서만 가능합니다.");
+                } else {
+                  setSelectedWork("ProjectA");
+                  setShowDesktopView(true);
+                }
               }}
             >
               Desktop View
