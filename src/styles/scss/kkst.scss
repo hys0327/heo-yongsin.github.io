@@ -351,7 +351,7 @@ body {
                   .thumb-prod-img1 {
                     border-radius: 10px;
                     background: no-repeat center / cover
-                      url("../images/thumb_products1.png");
+                      url("../images/ant-prod1.jpg");
                     width: 173px;
                     aspect-ratio: 173 / 219;
                     flex-shrink: 0; /* 축소되지 않도록 설정 */
@@ -359,7 +359,7 @@ body {
                   .thumb-prod-img2 {
                     border-radius: 10px;
                     background: no-repeat center / cover
-                      url("../images/thumb_products2.png");
+                      url("../images/ant-prod2.jpg");
                     width: 173px;
                     aspect-ratio: 173 / 219;
                     flex-shrink: 0; /* 축소되지 않도록 설정 */
@@ -367,7 +367,7 @@ body {
                   .thumb-prod-img3 {
                     border-radius: 10px;
                     background: no-repeat center / cover
-                      url("../images/thumb_products3.png");
+                      url("../images/ant-prod3.jpg");
                     width: 173px;
                     aspect-ratio: 173 / 219;
                     flex-shrink: 0; /* 축소되지 않도록 설정 */
@@ -381,7 +381,7 @@ body {
                   .thumb-cody-img1 {
                     border-radius: 10px;
                     background: no-repeat center / cover
-                      url("../images/thumb_cody1.png");
+                      url("../images/thumb_cody1.jpg");
                     width: 132px;
                     aspect-ratio: 132 / 176;
                     margin-right: 10px;
@@ -389,7 +389,15 @@ body {
                   .thumb-cody-img2 {
                     border-radius: 10px;
                     background: no-repeat center / cover
-                      url("../images/thumb_cody2.png");
+                      url("../images/thumb_cody2.jpg");
+                    width: 132px;
+                    aspect-ratio: 132 / 176;
+                    margin-right: 10px;
+                  }
+                  .thumb-cody-img3 {
+                    border-radius: 10px;
+                    background: no-repeat center / cover
+                      url("../images/thumb_cody3.jpg");
                     width: 132px;
                     aspect-ratio: 132 / 176;
                   }
