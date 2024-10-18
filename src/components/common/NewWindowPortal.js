@@ -1,7 +1,16 @@
 import { useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
 
-const NewWindowPortal = ({ children, title, width, height, onClose }) => {
+const NewWindowPortal = ({
+  children,
+  title,
+  width,
+  height,
+  onClose,
+  selectedWork,
+}) => {
+  console.log(selectedWork);
+
   const newWindow = useRef(null); // useRef로 창을 관리 (상태가 아님)
 
   useEffect(() => {
@@ -14,6 +23,21 @@ const NewWindowPortal = ({ children, title, width, height, onClose }) => {
 
     // 새 창의 기본 HTML 작성
     const doc = newWindow.current.document;
+
+    // selectedWork에 따라 동적으로 스타일 시트 변경
+    let stylesheets = "";
+    if (selectedWork === "ProjectA") {
+      stylesheets = `
+        <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/reset.css" />
+        <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/kkst.css" />
+        <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/responsive_kkst.css" />
+      `;
+    } else if (selectedWork === "ProjectB") {
+      stylesheets = `
+        <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/reset.css" />
+        <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/netflix.css" />
+      `;
+    }
     doc.write(`
       <!DOCTYPE html>
       <html lang="ko">
@@ -21,9 +45,7 @@ const NewWindowPortal = ({ children, title, width, height, onClose }) => {
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>${title}</title>
-          <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/reset.css" />
-          <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/kkst.css" />
-          <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/responsive_kkst.css" />
+          ${stylesheets}
         </head>
         <body>
           <div id="project"></div>
@@ -55,7 +77,7 @@ const NewWindowPortal = ({ children, title, width, height, onClose }) => {
       newWindow.current.removeEventListener("beforeunload", cleanup);
       cleanup();
     };
-  }, [children, title, width, height, onClose]); // 창을 한 번만 열고 관리
+  }, [children, title, width, height, onClose, selectedWork]); // 창을 한 번만 열고 관리
 
   return null;
 };
