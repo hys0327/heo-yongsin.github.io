@@ -114,19 +114,18 @@ const Main = () => {
               muted={isMuted}
               loop
               controls={false}
+              key={selectedIndex} // selectedIndex 변경 시 비디오 리셋
             >
               <source
-                src={`${process.env.PUBLIC_URL}/video/video_rank1.mp4`}
+                src={`${process.env.PUBLIC_URL}/video/video_rank${
+                  selectedIndex + 1
+                }.mp4`}
                 type="video/mp4"
               />
             </video>
           </div>
           <div className="video-controls-tool">
-            <div className="top">
-              <div className="badge">
-                <span className="text">Top1</span>
-              </div>
-            </div>
+            <div className="top"></div>
             <div className="btm">
               <CustomControls isMuted={isMuted} toggleMute={toggleMute} />
               <div className="slider-bg">
