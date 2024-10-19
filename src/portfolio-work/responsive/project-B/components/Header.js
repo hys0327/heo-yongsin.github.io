@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Header = ({ children, viewType }) => {
-  console.log(viewType);
+const Header = ({ children, viewType, handleScroll }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // 메뉴 항목 클릭 시 activeIndex 변경
+  const handleNavClick = (index) => {
+    setActiveIndex(index);
+    handleScroll(index);
+  };
+
+  const menuItems = ["홈", "시청 중인 콘텐츠", "콘텐츠"];
+
   return (
     <div className="header_container">
       <header className="header">
@@ -9,15 +18,16 @@ const Header = ({ children, viewType }) => {
           <div className="logo"></div>
           <nav className="nav">
             <ul>
-              <li className="nav-item active">
-                <button>홈</button>
-              </li>
-              <li className="nav-item">
-                <button>시청 중인 콘텐츠</button>
-              </li>
-              <li className="nav-item">
-                <button>콘텐츠</button>
-              </li>
+              {menuItems.map((menu, index) => (
+                <li
+                  key={index}
+                  className={`nav-item ${
+                    activeIndex === index ? "active" : ""
+                  }`}
+                >
+                  <button onClick={() => handleNavClick(index)}>{menu}</button>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>

@@ -4,11 +4,12 @@ import CustomControls from "./CustomControls";
 import ItemList from "./ItemList";
 import dummyData from "../components/dummyData";
 
-const Main = () => {
+const Main = ({ homeRef, watchHistoryRef, contentsRef }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   // 비디오 컨트롤러
   const [isMuted, setIsMuted] = useState(true); // 초기 음소거
-  const videoRef = useRef(null); // 비디오 접근 ref
+  // 비디오 접근 ref
+  const videoRef = useRef(null);
   // 슬라이더 ref
   const sliderRef = useRef(null);
 
@@ -120,6 +121,15 @@ const Main = () => {
     <div className="main_container">
       <main>
         <section className="container_top10">
+          <div
+            ref={homeRef}
+            style={{
+              position: "absolute",
+              top: "-67px",
+              width: "100%",
+              height: "100%",
+            }}
+          ></div>
           <div className="video-display">
             <video
               ref={videoRef}
@@ -173,6 +183,15 @@ const Main = () => {
           </div>
         </section>
         <section className="container_watch_history">
+          <div
+            ref={watchHistoryRef}
+            style={{
+              position: "absolute",
+              top: "-67px",
+              width: "100%",
+              height: "100%",
+            }}
+          ></div>
           <div className="title">
             <span className="user_id">{`용용`}</span>
             <span className="text">님이 시청 중인 콘텐츠</span>
@@ -185,6 +204,15 @@ const Main = () => {
           </div>
         </section>
         <section className="all-contents">
+          <div
+            ref={contentsRef}
+            style={{
+              position: "absolute",
+              top: "-67px",
+              width: "100%",
+              height: "100%",
+            }}
+          ></div>
           <div className="menu-container">
             <ul>
               {menuItems.map((category) => (
