@@ -20,106 +20,108 @@ body {
           align-items: center;
           justify-content: space-between;
           padding: 15px;
-          .h_left {
-            display: flex;
-            align-items: center;
-            .logo {
-              cursor: pointer;
-              margin-right: 80px;
-              background: no-repeat center / cover
-                url("../icons/icon_netflix.svg");
-              height: 30px;
-              aspect-ratio: 111 / 30;
-              filter: invert(16%) sepia(93%) saturate(7488%) hue-rotate(1deg)
-                brightness(107%) contrast(114%);
-            }
-            nav {
-              ul {
-                display: flex;
-                align-items: center;
-                li {
-                  margin-right: 40px;
-                  &:last-child {
-                    margin-right: 0;
-                  }
-                  &.active {
-                    button {
-                      color: #c9cedc;
-                    }
-                  }
-                  button {
-                    color: #697183;
-                    padding: 7px 10px;
-                  }
-                }
-              }
-            }
-          }
-          .h_right {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            .search_bar {
-              margin-right: 60px;
-              position: relative;
-              input[type="text"] {
-                width: 400px;
-                padding: 10px 20px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                border-radius: 50px;
-                background: none;
-                color: #c9cedc;
-                &::placeholder {
-                  color: #697183;
-                }
-                &:focus {
-                  border-color: #00ffa3;
-                  outline: none;
-                }
-              }
-              .icon {
-                display: inline-block;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                right: 20px;
-                background: no-repeat center / cover
-                  url("../icons/icon_search.svg");
-                width: 20px;
-                aspect-ratio: 20 / 23.2;
-                filter: invert(94%) sepia(92%) saturate(32%) hue-rotate(132deg)
-                  brightness(108%) contrast(108%);
-              }
-            }
-            .user_wrap {
+          .btm {
+            .h_left {
               display: flex;
               align-items: center;
-              cursor: pointer;
-              span {
-                &.icon_arrow {
-                  background: no-repeat center / cover
-                    url("../icons/icon_arrow_down2.svg");
-                  width: 10px;
-                  aspect-ratio: 10 / 6;
-                  filter: invert(93%) sepia(3%) saturate(1126%)
-                    hue-rotate(190deg) brightness(89%) contrast(92%);
-                }
-                &.icon_user {
-                  background: no-repeat center / cover
-                    url("../images/img_netflix_user.png");
-                  width: 32px;
-                  aspect-ratio: 1 / 1;
+              .logo {
+                cursor: pointer;
+                margin-right: 80px;
+                background: no-repeat center / cover
+                  url("../icons/icon_netflix.svg");
+                height: 30px;
+                aspect-ratio: 111 / 30;
+                filter: invert(16%) sepia(93%) saturate(7488%) hue-rotate(1deg)
+                  brightness(107%) contrast(114%);
+              }
+              nav {
+                ul {
+                  display: flex;
+                  align-items: center;
+                  li {
+                    margin-right: 40px;
+                    &:last-child {
+                      margin-right: 0;
+                    }
+                    &.active {
+                      button {
+                        color: #c9cedc;
+                      }
+                    }
+                    button {
+                      color: #697183;
+                      padding: 7px 10px;
+                    }
+                  }
                 }
               }
-              .img_bg {
+            }
+            .h_right {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .search_bar {
+                margin-right: 60px;
+                position: relative;
+                input[type="text"] {
+                  width: 400px;
+                  padding: 10px 20px;
+                  border: 1px solid rgba(255, 255, 255, 0.2);
+                  border-radius: 50px;
+                  background: none;
+                  color: #c9cedc;
+                  &::placeholder {
+                    color: #697183;
+                  }
+                  &:focus {
+                    border-color: #00ffa3;
+                    outline: none;
+                  }
+                }
+                .icon {
+                  display: inline-block;
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  right: 20px;
+                  background: no-repeat center / cover
+                    url("../icons/icon_search.svg");
+                  width: 20px;
+                  aspect-ratio: 20 / 23.2;
+                  filter: invert(94%) sepia(92%) saturate(32%)
+                    hue-rotate(132deg) brightness(108%) contrast(108%);
+                }
+              }
+              .user_wrap {
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                width: 32px;
-                height: 32px;
-                margin-right: 15px;
-                background: #0b72e6;
-                border-radius: 5px;
+                cursor: pointer;
+                span {
+                  &.icon_arrow {
+                    background: no-repeat center / cover
+                      url("../icons/icon_arrow_down2.svg");
+                    width: 10px;
+                    aspect-ratio: 10 / 6;
+                    filter: invert(93%) sepia(3%) saturate(1126%)
+                      hue-rotate(190deg) brightness(89%) contrast(92%);
+                  }
+                  &.icon_user {
+                    background: no-repeat center / cover
+                      url("../images/img_netflix_user.png");
+                    width: 32px;
+                    aspect-ratio: 1 / 1;
+                  }
+                }
+                .img_bg {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  width: 32px;
+                  height: 32px;
+                  margin-right: 15px;
+                  background: #0b72e6;
+                  border-radius: 5px;
+                }
               }
             }
           }

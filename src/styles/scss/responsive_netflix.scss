@@ -1,0 +1,109 @@
+@import "variables";
+
+// 데스크탑
+@media screen and (min-width: 933px) {
+  body {
+    .project-container {
+      &.netflix {
+        .header_container {
+          header {
+            display: block;
+            .top {
+            }
+            .btm {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 모바일
+@media screen and (max-width: 932px) {
+  body {
+    .project-container {
+      &.netflix {
+        .header_container {
+          header {
+            display: block;
+            padding: 0;
+            .top {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              background: #fff;
+              height: 32px;
+              padding: 0 16px;
+              color: #000;
+              font-weight: 600;
+              .icon_wrap {
+                display: flex;
+                align-items: center;
+                .icon {
+                  &.wifi {
+                    background: no-repeat center / cover
+                      url(../icons/icon_wifi.svg);
+                    height: 13.33px;
+                    aspect-ratio: 14.67 / 11.33;
+                    margin-right: 3.33px;
+                  }
+                  &.status {
+                    background: no-repeat center / cover
+                      url(../icons/icon_status.svg);
+                    width: 13.33px;
+                    aspect-ratio: 13.33 / 13.33;
+                    margin-right: 10px;
+                  }
+                  &.battery {
+                    background: no-repeat center / cover
+                      url(../icons/icon_battery.svg);
+                    width: 10px;
+                    aspect-ratio: 8 / 13.33;
+                  }
+                }
+              }
+            }
+            .btm {
+              padding: 16px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .h_left {
+                .logo {
+                  width: 68px;
+                  height: auto;
+                  margin-right: 0;
+                }
+              }
+              .h_right {
+                .search_bar {
+                }
+                .mobile-menu {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  span {
+                    &.icon {
+                      &.icon_menu {
+                        background: no-repeat center / cover
+                          url("../icons/icon_menu.svg");
+                        width: 20px;
+                        aspect-ratio: 24 / 24;
+                        filter: invert(100%) sepia(0%) saturate(0%)
+                          hue-rotate(122deg) brightness(101%) contrast(104%);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

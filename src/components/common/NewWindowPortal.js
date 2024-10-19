@@ -36,6 +36,7 @@ const NewWindowPortal = ({
       stylesheets = `
         <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/reset.css" />
         <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/netflix.css" />
+        <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/responsive_netflix.css" />
       `;
     }
     doc.write(`
