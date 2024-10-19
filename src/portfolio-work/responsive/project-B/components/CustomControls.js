@@ -1,11 +1,11 @@
 import React from "react";
 
-const CustomControls = ({ isMuted, toggleMute }) => {
+const CustomControls = ({ isMuted, toggleMute, selectedIndex }) => {
   return (
     <div className="custom-controls">
       <div className="button_wrap">
         <div className="badge">
-          <span className="text">Top1</span>
+          <span className="text">{`Top ${selectedIndex + 1}`}</span>
         </div>
         <button>
           <span className="text">상세 정보</span>

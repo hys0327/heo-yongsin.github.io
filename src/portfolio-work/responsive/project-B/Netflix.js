@@ -12,7 +12,7 @@ const Netflix = ({ viewType }) => {
           {viewType === "mobile" ? <MobileNav /> : null}
         </Header>
         <Main />
-        <footer>푸터입니다.</footer>
+        {/* <footer>푸터입니다.</footer> */}
       </div>
     </div>
   );

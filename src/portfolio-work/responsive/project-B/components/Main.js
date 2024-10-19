@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Slider from "./Slider";
 import CustomControls from "./CustomControls";
+import ItemList from "./ItemList";
+import dummyData from "../components/dummyData";
 
 const Main = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -103,6 +105,17 @@ const Main = () => {
     }
   };
 
+  const [selectedCategory, setSelectedCategory] = useState("추천");
+
+  const filteredData =
+    selectedCategory === "추천"
+      ? Object.values(dummyData)
+          .flat()
+          .sort((a, b) => b.favoriteRatio - a.favoriteRatio)
+      : dummyData[selectedCategory] || [];
+
+  const menuItems = ["추천", "드라마", "예능", "영화", "애니메이션"];
+
   return (
     <div className="main_container">
       <main>
@@ -114,7 +127,7 @@ const Main = () => {
               muted={isMuted}
               loop
               controls={false}
-              key={selectedIndex} // selectedIndex 변경 시 비디오 리셋
+              key={selectedIndex} // 선택한 슬라이더의 비디오만 재생
             >
               <source
                 src={`${process.env.PUBLIC_URL}/video/video_rank${
@@ -127,7 +140,11 @@ const Main = () => {
           <div className="video-controls-tool">
             <div className="top"></div>
             <div className="btm">
-              <CustomControls isMuted={isMuted} toggleMute={toggleMute} />
+              <CustomControls
+                isMuted={isMuted}
+                toggleMute={toggleMute}
+                selectedIndex={selectedIndex}
+              />
               <div className="slider-bg">
                 <div className="slider-container" ref={sliderRef}>
                   <Slider
@@ -154,6 +171,35 @@ const Main = () => {
               </div>
             </div>
           </div>
+        </section>
+        <section className="container_watch_history">
+          <div className="title">
+            <span className="user_id">{`용용`}</span>
+            <span className="text">님이 시청 중인 콘텐츠</span>
+          </div>
+          <div className="history-wrap">
+            <div className="item img1"></div>
+            <div className="item img2"></div>
+            <div className="item img3"></div>
+            <div className="item img4"></div>
+          </div>
+        </section>
+        <section className="all-contents">
+          <div className="menu-container">
+            <ul>
+              {menuItems.map((category) => (
+                <li key={category}>
+                  <button
+                    onClick={() => setSelectedCategory(category)}
+                    className={selectedCategory === category ? "selected" : ""}
+                  >
+                    <span className="text">{category}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <ItemList data={filteredData} />
         </section>
       </main>
     </div>
