@@ -12,6 +12,8 @@ const Main = ({ homeRef, watchHistoryRef, contentsRef, viewType }) => {
   const videoRef = useRef(null);
   // 슬라이더 ref
   const sliderRef = useRef(null);
+  //
+  const [isHovered, setIsHoverd] = useState(false);
 
   // 음소거 토글함수
   const toggleMute = () => {
@@ -95,14 +97,26 @@ const Main = ({ homeRef, watchHistoryRef, contentsRef, viewType }) => {
 
   // prev
   const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+    if (viewType === "mobile") {
+      if (selectedIndex > 0) {
+        setSelectedIndex(selectedIndex - 1);
+      }
+    } else {
+      if (currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1);
+      }
     }
   };
   // next
   const handleNext = () => {
-    if (currentIndex < totalItems - itemsPerView) {
-      setCurrentIndex(currentIndex + 1);
+    if (viewType === "mobile") {
+      if (selectedIndex < totalItems - 1) {
+        setSelectedIndex(selectedIndex + 1);
+      }
+    } else {
+      if (currentIndex < totalItems - itemsPerView) {
+        setCurrentIndex(currentIndex + 1);
+      }
     }
   };
 
@@ -139,7 +153,11 @@ const Main = ({ homeRef, watchHistoryRef, contentsRef, viewType }) => {
               />
             </video>
           </div>
-          <div className="video-controls-tool">
+          <div
+            className="video-controls-tool"
+            onMouseEnter={() => setIsHoverd(true)}
+            onMouseLeave={() => setIsHoverd(false)}
+          >
             <div className="top"></div>
             <div className="btm">
               <CustomControls
@@ -147,33 +165,61 @@ const Main = ({ homeRef, watchHistoryRef, contentsRef, viewType }) => {
                 toggleMute={toggleMute}
                 selectedIndex={selectedIndex}
               />
-              <div className="slider-bg">
-                <div className="slider-container" ref={sliderRef}>
-                  <Slider
-                    selectedIndex={selectedIndex}
-                    setSelectedIndex={setSelectedIndex}
-                    contents={contents}
-                    currentIndex={currentIndex}
-                    itemsPerView={itemsPerView}
-                    viewType={viewType}
-                  />
+              {viewType === "mobile" ? (
+                ""
+              ) : (
+                <div className="slider-bg">
+                  <div className="slider-container" ref={sliderRef}>
+                    <Slider
+                      selectedIndex={selectedIndex}
+                      setSelectedIndex={setSelectedIndex}
+                      contents={contents}
+                      currentIndex={currentIndex}
+                      itemsPerView={itemsPerView}
+                      viewType={viewType}
+                    />
+                  </div>
+                  <button
+                    className={`prev-btn ${
+                      currentIndex === 0 ? "disabled" : ""
+                    }`}
+                    onClick={handlePrev}
+                  >
+                    <span className="icon icon_prev"></span>
+                  </button>
+                  <button
+                    className={`next-btn ${
+                      currentIndex >= totalItems - itemsPerView
+                        ? "disabled"
+                        : ""
+                    }`}
+                    onClick={handleNext}
+                  >
+                    <span className="icon icon_next"></span>
+                  </button>
                 </div>
+              )}
+            </div>
+            {viewType === "mobile" && isHovered && (
+              <div className="button-wrap">
                 <button
-                  className={`prev-btn ${currentIndex === 0 ? "disabled" : ""}`}
+                  className={`prev-btn ${
+                    selectedIndex === 0 ? "disabled" : ""
+                  }`}
                   onClick={handlePrev}
                 >
                   <span className="icon icon_prev"></span>
                 </button>
                 <button
                   className={`next-btn ${
-                    currentIndex >= totalItems - itemsPerView ? "disabled" : ""
+                    selectedIndex >= totalItems - 1 ? "disabled" : ""
                   }`}
                   onClick={handleNext}
                 >
                   <span className="icon icon_next"></span>
                 </button>
               </div>
-            </div>
+            )}
           </div>
         </section>
         <section className="container_watch_history">

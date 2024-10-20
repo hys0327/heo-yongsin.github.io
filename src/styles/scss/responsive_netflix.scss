@@ -140,13 +140,11 @@
                     width: 100%;
                     top: 0;
                   }
-                  .video-display {
-                  }
                   .video-controls-tool {
                     .btm {
                       bottom: 13px;
                       .custom-controls {
-                        margin-bottom: 10px;
+                        margin-bottom: 0;
                         width: calc(100% - 20px);
                         .button_wrap {
                           font-size: 13px;
@@ -254,6 +252,55 @@
                           &.next-btn {
                             right: 2px;
                           }
+                        }
+                      }
+                    }
+                    .button-wrap {
+                      position: absolute;
+                      left: 0;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                      width: 100%;
+                      button {
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50px;
+                        background: #2a2d2f;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        &.disabled {
+                          cursor: default;
+                          filter: brightness(0.5);
+                        }
+                        span {
+                          aspect-ratio: 1 / 1;
+                          width: 16px;
+                          filter: invert(94%) sepia(92%) saturate(32%)
+                            hue-rotate(132deg) brightness(108%) contrast(108%);
+                        }
+                        &.prev-btn {
+                          left: 6px;
+                          span {
+                            background: no-repeat center / cover
+                              url("../icons/icon_prev2.svg");
+                          }
+                        }
+                        &.next-btn {
+                          right: 6px;
+                          span {
+                            background: no-repeat center / cover
+                              url("../icons/icon_next2.svg");
+                          }
+                        }
+                        &:hover:not(.disabled) {
+                          filter: brightness(1.5);
                         }
                       }
                     }
