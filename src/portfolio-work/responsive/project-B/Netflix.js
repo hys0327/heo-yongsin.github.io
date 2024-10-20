@@ -37,12 +37,12 @@ const Netflix = ({ viewType }) => {
         <Header viewType={viewType} handleScroll={handleScroll}>
           {viewType === "mobile" ? <MobileNav /> : null}
         </Header>
-        {/* <Main
+        <Main
           homeRef={homeRef}
           watchHistoryRef={watchHistoryRef}
           contentsRef={contentsRef}
           viewType={viewType}
-        /> */}
+        />
         {/* <footer>푸터입니다.</footer> */}
       </div>
     </div>

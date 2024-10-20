@@ -36,6 +36,7 @@
           &.netflix {
             width: 100%;
             .header_container {
+              max-width: none;
               header {
                 display: block;
                 padding: 0;
