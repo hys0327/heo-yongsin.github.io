@@ -138,6 +138,7 @@ body {
             margin-bottom: 50px;
             .scrollHelper {
               position: absolute;
+              z-index: -1;
               top: -67px;
               width: 100%;
               height: 100%;
@@ -394,8 +395,10 @@ body {
           }
           .container_watch_history {
             position: relative;
+            margin-bottom: 50px;
             .scrollHelper {
               position: absolute;
+              z-index: -1;
               top: -67px;
               width: 100%;
               height: 100%;
@@ -415,7 +418,6 @@ body {
             .history-wrap {
               display: flex;
               align-items: center;
-              margin-bottom: 50px;
               .item {
                 margin-right: 20px;
                 aspect-ratio: 250 / 141;
@@ -450,6 +452,7 @@ body {
             position: relative;
             .scrollHelper {
               position: absolute;
+              z-index: -1;
               top: -67px;
               width: 100%;
               height: 100%;

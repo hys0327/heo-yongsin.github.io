@@ -90,7 +90,7 @@ const Main = ({ homeRef, watchHistoryRef, contentsRef, viewType }) => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = viewType === "mobile" ? 2 : 5;
+  const itemsPerView = viewType === "mobile" ? 5 : 5;
   const totalItems = contents.length; // 슬라이더 아이템 총 개수
 
   // prev
@@ -155,6 +155,7 @@ const Main = ({ homeRef, watchHistoryRef, contentsRef, viewType }) => {
                     contents={contents}
                     currentIndex={currentIndex}
                     itemsPerView={itemsPerView}
+                    viewType={viewType}
                   />
                 </div>
                 <button

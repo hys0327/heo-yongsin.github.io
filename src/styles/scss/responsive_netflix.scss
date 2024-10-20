@@ -132,6 +132,7 @@
               height: calc(100% - 88px);
               overflow-y: auto;
               main {
+                padding: 0 16px;
                 .container_top10 {
                   .scrollHelper {
                     top: 0;
@@ -169,7 +170,51 @@
                           width: calc(100% - 20px);
                           .slider {
                             .slider-item {
-                              flex: 0 0 50%;
+                              .img {
+                                width: 100%;
+                                aspect-ratio: 80 / 90;
+                                &.img_rank1 {
+                                  background: no-repeat center / cover
+                                    url("../images/img_rank1.png");
+                                }
+                                &.img_rank2 {
+                                  background: no-repeat center / cover
+                                    url("../images/img_rank2.png");
+                                }
+                                &.img_rank3 {
+                                  background: no-repeat center / cover
+                                    url("../images/img_rank3.png");
+                                }
+                                &.img_rank4 {
+                                  background: no-repeat center / cover
+                                    url("../images/img_rank4.png");
+                                }
+                                &.img_rank5 {
+                                  background: no-repeat center / cover
+                                    url("../images/img_rank5.png");
+                                }
+                                &.img_rank6 {
+                                  background: no-repeat center / cover
+                                    url("../images/img_rank6.png");
+                                }
+                                &.img_rank7 {
+                                  background: no-repeat center / cover
+                                    url("../images/img_rank7.png");
+                                }
+                                &.img_rank8 {
+                                  background: no-repeat center / cover
+                                    url("../images/img_rank8.png");
+                                }
+                                &.img_rank9 {
+                                  background: no-repeat center / cover
+                                    url("../images/img_rank9.png");
+                                }
+                                &.img_rank10 {
+                                  background: no-repeat center / cover
+                                    url("../images/img_rank10.png");
+                                }
+                              }
+                              flex: 0 0 20%;
                               .left {
                                 padding: 0;
                                 justify-content: center;
@@ -207,6 +252,55 @@
                           }
                           &.next-btn {
                             right: 2px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                .container_watch_history {
+                  .scrollHelper {
+                    top: 0;
+                  }
+                  .title {
+                    margin-bottom: 15px;
+                    span {
+                      font-size: 18px;
+                    }
+                  }
+                  .history-wrap {
+                    justify-content: space-between;
+                    .item {
+                      width: calc(100% / 4);
+                      margin-right: 10px;
+                      &:last-child {
+                        margin-right: 0;
+                      }
+                    }
+                  }
+                }
+                .all-contents {
+                  .scrollHelper {
+                    top: 0;
+                  }
+                  .item-container {
+                    column-gap: 10px;
+                    row-gap: 10px;
+                    .item-wrap {
+                      width: calc(50% - 5px);
+                      .img {
+                        width: auto;
+                      }
+                      .item_btm {
+                        .title {
+                          font-size: 13px;
+                        }
+                        .category {
+                          font-size: 12px;
+                        }
+                        .badge_wrap {
+                          .badge {
+                            font-size: 12px;
                           }
                         }
                       }
