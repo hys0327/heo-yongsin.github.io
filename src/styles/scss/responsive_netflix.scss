@@ -6,6 +6,7 @@
     .project-container {
       &.netflix {
         .header_container {
+          max-width: auto;
           header {
             display: block;
             .top {
