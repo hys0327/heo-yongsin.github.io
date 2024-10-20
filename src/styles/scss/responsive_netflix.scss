@@ -132,9 +132,9 @@
               height: calc(100% - 88px);
               overflow-y: auto;
               main {
-                padding: 0 16px;
                 .container_top10 {
                   .scrollHelper {
+                    width: calc(100% - 32px);
                     top: 0;
                   }
                   .video-display {
@@ -259,7 +259,9 @@
                   }
                 }
                 .container_watch_history {
+                  padding: 0 16px;
                   .scrollHelper {
+                    width: calc(100% - 32px);
                     top: 0;
                   }
                   .title {
@@ -280,7 +282,9 @@
                   }
                 }
                 .all-contents {
+                  padding: 0 16px;
                   .scrollHelper {
+                    width: calc(100% - 32px);
                     top: 0;
                   }
                   .item-container {
