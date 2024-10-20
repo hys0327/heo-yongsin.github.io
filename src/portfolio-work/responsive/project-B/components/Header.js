@@ -50,7 +50,7 @@ const Header = ({ children, viewType, handleScroll }) => {
         ) : (
           ""
         )}
-        <div className="btm">
+        {/* <div className="btm">
           <div className="h_left">
             <div className="logo"></div>
             {viewType === "mobile" ? (
@@ -106,7 +106,7 @@ const Header = ({ children, viewType, handleScroll }) => {
               </div>
             )}
           </div>
-        </div>
+        </div> */}
       </header>
     </div>
   );
