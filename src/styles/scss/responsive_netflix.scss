@@ -133,15 +133,13 @@
               overflow-y: auto;
               main {
                 .container_top10 {
-                  padding: 0 16px;
                   .scrollHelper {
-                    width: calc(100% - 32px);
+                    width: 100%;
                     top: 0;
                   }
                   .video-display {
                   }
                   .video-controls-tool {
-                    width: calc(100% - 32px);
                     .btm {
                       bottom: 13px;
                       .custom-controls {
