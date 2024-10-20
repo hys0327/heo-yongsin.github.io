@@ -3,19 +3,21 @@
 // 데스크탑
 @media screen and (min-width: 933px) {
   body {
-    overflow: hidden;
-    .project-container {
-      &.netflix {
-        .header_container {
-          max-width: auto;
-          header {
-            display: block;
-            .top {
-            }
-            .btm {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
+    #project {
+      .wrap {
+        .project-container {
+          &.netflix {
+            .header_container {
+              header {
+                display: block;
+                .top {
+                }
+                .btm {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                }
+              }
             }
           }
         }
