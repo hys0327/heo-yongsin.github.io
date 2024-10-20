@@ -4,7 +4,7 @@ import CustomControls from "./CustomControls";
 import ItemList from "./ItemList";
 import dummyData from "../components/dummyData";
 
-const Main = ({ homeRef, watchHistoryRef, contentsRef }) => {
+const Main = ({ homeRef, watchHistoryRef, contentsRef, viewType }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   // 비디오 컨트롤러
   const [isMuted, setIsMuted] = useState(true); // 초기 음소거
@@ -90,7 +90,7 @@ const Main = ({ homeRef, watchHistoryRef, contentsRef }) => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 5;
+  const itemsPerView = viewType === "mobile" ? 2 : 5;
   const totalItems = contents.length; // 슬라이더 아이템 총 개수
 
   // prev
@@ -121,15 +121,7 @@ const Main = ({ homeRef, watchHistoryRef, contentsRef }) => {
     <div className="main_container">
       <main>
         <section className="container_top10">
-          <div
-            ref={homeRef}
-            style={{
-              position: "absolute",
-              top: "-67px",
-              width: "100%",
-              height: "100%",
-            }}
-          ></div>
+          <div className="scrollHelper" ref={homeRef}></div>
           <div className="video-display">
             <video
               ref={videoRef}
@@ -162,6 +154,7 @@ const Main = ({ homeRef, watchHistoryRef, contentsRef }) => {
                     setSelectedIndex={setSelectedIndex}
                     contents={contents}
                     currentIndex={currentIndex}
+                    itemsPerView={itemsPerView}
                   />
                 </div>
                 <button
@@ -183,15 +176,7 @@ const Main = ({ homeRef, watchHistoryRef, contentsRef }) => {
           </div>
         </section>
         <section className="container_watch_history">
-          <div
-            ref={watchHistoryRef}
-            style={{
-              position: "absolute",
-              top: "-67px",
-              width: "100%",
-              height: "100%",
-            }}
-          ></div>
+          <div className="scrollHelper" ref={watchHistoryRef}></div>
           <div className="title">
             <span className="user_id">{`용용`}</span>
             <span className="text">님이 시청 중인 콘텐츠</span>
@@ -204,15 +189,7 @@ const Main = ({ homeRef, watchHistoryRef, contentsRef }) => {
           </div>
         </section>
         <section className="all-contents">
-          <div
-            ref={contentsRef}
-            style={{
-              position: "absolute",
-              top: "-67px",
-              width: "100%",
-              height: "100%",
-            }}
-          ></div>
+          <div className="scrollHelper" ref={contentsRef}></div>
           <div className="menu-container">
             <ul>
               {menuItems.map((category) => (

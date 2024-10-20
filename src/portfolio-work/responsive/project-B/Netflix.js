@@ -41,6 +41,7 @@ const Netflix = ({ viewType }) => {
           homeRef={homeRef}
           watchHistoryRef={watchHistoryRef}
           contentsRef={contentsRef}
+          viewType={viewType}
         />
         {/* <footer>푸터입니다.</footer> */}
       </div>

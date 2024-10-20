@@ -11,6 +11,8 @@ const NewWindowPortal = ({
 }) => {
   console.log(selectedWork);
 
+  console.log(width);
+
   const newWindow = useRef(null); // useRef로 창을 관리 (상태가 아님)
 
   useEffect(() => {

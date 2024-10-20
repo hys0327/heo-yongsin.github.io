@@ -5,20 +5,21 @@ const Slider = ({
   setSelectedIndex,
   contents,
   currentIndex,
+  itemsPerView,
 }) => {
   // 선택된 슬라이더를 변경하는 함수
   const handleSliderClick = (index) => {
     setSelectedIndex(index);
   };
 
-  console.log("currentIndex", currentIndex);
+  const translateXValue = 100 / itemsPerView;
 
   return (
     <>
       <div
         className="slider"
         style={{
-          transform: `translateX(-${currentIndex * 20}%)`,
+          transform: `translateX(-${currentIndex * translateXValue}%)`,
           transition: "transform 0.5s ease",
         }}
       >

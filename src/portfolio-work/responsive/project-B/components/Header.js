@@ -83,6 +83,9 @@ const Header = ({ children, viewType, handleScroll }) => {
             )}
             {viewType === "mobile" ? (
               <>
+                <div className="search">
+                  <span className="icon icon_search"></span>
+                </div>
                 <div className="mobile-menu" onClick={toggleMobileNav}>
                   <span className="icon icon_menu"></span>
                 </div>
