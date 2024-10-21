@@ -1,11 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import MobileNav from "./components/MobileNav";
+import React, { useState, useRef } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import MobileSearchPopup from "./components/MobileSearchPopup";
+import MobileMenuPopup from "./components/MobileMenuPopup";
 
 const Netflix = ({ viewType }) => {
-  console.log(viewType);
-
   // scroll-y 이동 기능 ref
   const homeRef = useRef(null);
   const watchHistoryRef = useRef(null);
@@ -31,12 +30,57 @@ const Netflix = ({ viewType }) => {
     }
   };
 
+  const menuItems = ["홈", "시청 중인 콘텐츠", "콘텐츠"];
+  const [activeIndex, setActiveIndex] = useState(0); // 현재 활성화된 메뉴
+  const [popupState, setPopupState] = useState({
+    isVisible: false,
+    type: "",
+  });
+
+  // 메뉴 항목 클릭 시 동작
+  const handleNavClick = (index) => {
+    setActiveIndex(index);
+    handleScroll(index); // 스크롤 이동
+    setPopupState({ isVisible: false, type: "" }); // 메뉴 클릭 후 팝업 닫기
+  };
+
+  // 팝업 렌더링 함수
+  const renderPopup = () => {
+    if (!popupState.isVisible) return null;
+    switch (popupState.type) {
+      case "search":
+        return <MobileSearchPopup setPopupState={setPopupState} />;
+      case "menu":
+        return (
+          <MobileMenuPopup
+            menuItems={menuItems}
+            handleNavClick={handleNavClick}
+            activeIndex={activeIndex}
+            setPopupState={setPopupState}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="wrap">
+      {popupState.isVisible && viewType === "mobile" && (
+        <div className="popup-container">
+          <div className="dimmed"></div>
+          {renderPopup()}
+        </div>
+      )}
       <div className="project-container netflix">
-        <Header viewType={viewType} handleScroll={handleScroll}>
-          {viewType === "mobile" ? <MobileNav /> : null}
-        </Header>
+        <Header
+          viewType={viewType}
+          handleScroll={handleScroll}
+          menuItems={menuItems}
+          activeIndex={activeIndex}
+          handleNavClick={handleNavClick}
+          setPopupState={setPopupState}
+        />
         <Main
           homeRef={homeRef}
           watchHistoryRef={watchHistoryRef}

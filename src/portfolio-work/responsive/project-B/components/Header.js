@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from "react";
-import MobileNav from "./MobileNav";
+import React, { useEffect, useState } from "react";
 
-const Header = ({ children, viewType, handleScroll }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const Header = ({
+  viewType,
+  handleScroll,
+  setPopupState,
+  menuItems,
+  activeIndex,
+  handleNavClick,
+}) => {
   const [currentTime, setCurrentTime] = useState("");
-  const [mobileNavVisible, setMobileNavVisible] = useState(false);
 
-  // 메뉴 항목 클릭 시 activeIndex 변경
-  const handleNavClick = (index) => {
-    setActiveIndex(index);
-    handleScroll(index);
-    setMobileNavVisible(false);
-  };
-
-  const menuItems = ["홈", "시청 중인 콘텐츠", "콘텐츠"];
-
+  // 현재 시간 업데이트
   useEffect(() => {
     const updateClock = () => {
       const now = new Date();
@@ -29,14 +25,18 @@ const Header = ({ children, viewType, handleScroll }) => {
     return () => clearInterval(intervalId);
   }, []);
 
-  const toggleMobileNav = () => {
-    setMobileNavVisible(!mobileNavVisible);
+  // 팝업 토글 함수
+  const togglePopup = (popupType) => {
+    setPopupState((prevState) => ({
+      isVisible: !prevState.isVisible,
+      type: popupType,
+    }));
   };
 
   return (
     <div className="header_container">
       <header className="header">
-        {viewType === "mobile" ? (
+        {viewType === "mobile" && (
           <div className="top">
             <div className="time">
               <span className="text">{currentTime}</span>
@@ -47,15 +47,11 @@ const Header = ({ children, viewType, handleScroll }) => {
               <span className="icon battery"></span>
             </div>
           </div>
-        ) : (
-          ""
         )}
         <div className="btm">
           <div className="h_left">
             <div className="logo"></div>
-            {viewType === "mobile" ? (
-              ""
-            ) : (
+            {viewType !== "mobile" && (
               <nav className="nav">
                 <ul>
                   {menuItems.map((menu, index) => (
@@ -75,35 +71,31 @@ const Header = ({ children, viewType, handleScroll }) => {
             )}
           </div>
           <div className="h_right">
-            {viewType !== "mobile" && (
-              <div className="search_bar">
-                <input type="text" placeholder="검색어를 입력해주세요." />
-                <span className="icon icon_search"></span>
-              </div>
-            )}
-            {viewType === "mobile" ? (
+            {viewType !== "mobile" ? (
               <>
-                <div className="search">
+                <div className="search_bar">
+                  <input type="text" placeholder="검색어를 입력해주세요." />
                   <span className="icon icon_search"></span>
                 </div>
-                <div className="mobile-menu" onClick={toggleMobileNav}>
-                  <span className="icon icon_menu"></span>
+                <div className="user_wrap">
+                  <div className="img_bg">
+                    <span className="icon icon_user"></span>
+                  </div>
+                  <span className="icon icon_arrow"></span>
                 </div>
-                {mobileNavVisible && (
-                  <MobileNav
-                    menuItems={menuItems}
-                    handleNavClick={handleNavClick}
-                    activeIndex={activeIndex}
-                  />
-                )}
               </>
             ) : (
-              <div className="user_wrap">
-                <div className="img_bg">
-                  <span className="icon icon_user"></span>
+              <>
+                <div className="search" onClick={() => togglePopup("search")}>
+                  <span className="icon icon_search"></span>
                 </div>
-                <span className="icon icon_arrow"></span>
-              </div>
+                <div
+                  className="mobile-menu"
+                  onClick={() => togglePopup("menu")}
+                >
+                  <span className="icon icon_menu"></span>
+                </div>
+              </>
             )}
           </div>
         </div>
