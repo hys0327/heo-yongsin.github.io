@@ -43,7 +43,25 @@ const Netflix = ({ viewType }) => {
           contentsRef={contentsRef}
           viewType={viewType}
         />
-        {/* <footer>푸터입니다.</footer> */}
+        {viewType === "mobile" && (
+          <div className="footer_container">
+            <footer>
+              <nav>
+                <ul className="nav-items">
+                  <li className="item">
+                    <span className="icon nav-arrow"></span>
+                  </li>
+                  <li className="item">
+                    <span className="icon nav-home"></span>
+                  </li>
+                  <li className="item">
+                    <span className="icon nav-menu"></span>
+                  </li>
+                </ul>
+              </nav>
+            </footer>
+          </div>
+        )}
       </div>
     </div>
   );
