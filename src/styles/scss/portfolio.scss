@@ -43,9 +43,14 @@ body {
     .left {
       margin-right: 50px;
       .img {
-        background: $bg-properties $img-kkst-mockup;
         width: 300px;
         aspect-ratio: 2539 / 2118;
+        &.KKST {
+          background: $bg-properties $img-kkst-mockup;
+        }
+        &.Netflix {
+          background: $bg-properties $img-netflix-mockup;
+        }
       }
     }
     .right {
