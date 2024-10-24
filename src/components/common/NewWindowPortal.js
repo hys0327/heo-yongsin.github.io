@@ -28,13 +28,13 @@ const NewWindowPortal = ({
 
     // selectedWork에 따라 동적으로 스타일 시트 변경
     let stylesheets = "";
-    if (selectedWork === "ProjectA") {
+    if (selectedWork === "KKST") {
       stylesheets = `
         <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/reset.css" />
         <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/kkst.css" />
         <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/responsive_kkst.css" />
       `;
-    } else if (selectedWork === "ProjectB") {
+    } else if (selectedWork === "Netflix") {
       stylesheets = `
         <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/reset.css" />
         <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/netflix.css" />

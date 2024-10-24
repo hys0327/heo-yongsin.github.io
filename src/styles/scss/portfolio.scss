@@ -14,7 +14,7 @@ body {
     border-bottom: 2px dashed rgba(255, 255, 255, 0.2);
     padding-bottom: 20px;
     padding-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     h2 {
       font-size: 36px;
       color: #00a3e1;
@@ -27,6 +27,23 @@ body {
         background: $icon-work $bg-properties;
         filter: invert(53%) sepia(13%) saturate(4687%) hue-rotate(160deg)
           brightness(91%) contrast(104%);
+      }
+    }
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    button {
+      color: #fff;
+      padding: 8px 30px;
+      border: 1px solid #00a3e1;
+      margin-right: 20px;
+      &.active {
+        background: #00a3e1;
+      }
+      &:last-child {
+        margin-right: 0;
       }
     }
   }
@@ -50,6 +67,99 @@ body {
         }
         &.Netflix {
           background: $bg-properties $img-netflix-mockup;
+        }
+      }
+      .slider-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 480px;
+        .img-wrap {
+          display: flex;
+          transition: transform 0.5s ease;
+          .img {
+            display: none;
+            &.DocuGuard1 {
+              background: $bg-properties $img-docuguard-img1;
+              width: auto;
+              height: 250px;
+              aspect-ratio: 480 / 252;
+            }
+            &.DocuGuard2 {
+              background: $bg-properties $img-docuguard-img2;
+              width: auto;
+              height: 250px;
+              aspect-ratio: 480 / 252;
+            }
+            &.DocuGuard3 {
+              background: $bg-properties $img-docuguard-img3;
+              width: auto;
+              height: 250px;
+              aspect-ratio: 480 / 252;
+            }
+            &.DocuGuard4 {
+              background: $bg-properties $img-docuguard-img4;
+              width: auto;
+              height: 250px;
+              aspect-ratio: 480 / 252;
+            }
+            &.DocuGuard5 {
+              background: $bg-properties $img-docuguard-img5;
+              width: auto;
+              height: 250px;
+              aspect-ratio: 480 / 252;
+            }
+            &.DocuGuard6 {
+              background: $bg-properties $img-docuguard-img6;
+              width: auto;
+              height: 250px;
+              aspect-ratio: 480 / 252;
+            }
+            &.DocuGuard7 {
+              background: $bg-properties $img-docuguard-img7;
+              width: auto;
+              height: 250px;
+              aspect-ratio: 480 / 252;
+            }
+            &.active {
+              display: block;
+            }
+          }
+        }
+        button {
+          position: absolute;
+          top: 46%;
+          transform: translateY(-50%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          pointer-events: auto;
+          background: rgba(3, 3, 3, 0.5);
+          &.disabled {
+            cursor: default;
+            pointer-events: none;
+            opacity: 0.5;
+          }
+          &.prev-btn {
+            left: 5px;
+          }
+          &.next-btn {
+            right: 9px;
+          }
+          .icon {
+            width: 16px;
+            aspect-ratio: 1 / 1;
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(17deg)
+              brightness(105%) contrast(101%);
+            &.icon_prev {
+              background: $bg-properties $icon-prev;
+            }
+            &.icon_next {
+              background: $bg-properties $icon-next;
+            }
+          }
         }
       }
     }
