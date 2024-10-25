@@ -67,11 +67,11 @@ const Portfolio = () => {
       type: "collaborative",
       label: "DocuGuard",
       description: [
-        "2023.11 ~ 2023.05",
-        // "전자문서의 민감정보와 일반정보를 식별하고, 문서 뷰어를 통해 식별된 내용을 편집하는 문서뷰어 솔루션 프로젝트",
-        "로그인, 문서 관리, 사용자 관리, 문서 뷰어 편집 등의 화면을 react 프로젝트로 개발",
+        "2023.07 ~ 2024.05",
+        "Figma를 활용하여, 각 화면에 대한 UI/UX 설계 및 퍼블리싱 (기여도 100%)",
+        "로그인, 문서 관리, 사용자 관리, 이벤트 로그조회, 문서 뷰어 화면 개발 (기여도 60%)",
       ],
-      stack: "HTML, CSS, SCSS, JavaScript, React, Redux",
+      stack: "HTML, CSS, SCSS, JavaScript, React, Redux, Redux-Saga",
       images: [
         "DocuGuard1",
         "DocuGuard2",

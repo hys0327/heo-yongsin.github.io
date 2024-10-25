@@ -25,6 +25,21 @@
       .left {
         margin: 0;
         margin-bottom: 30px;
+        .slider-container {
+          .img-wrap {
+            .img {
+              height: 188px !important;
+            }
+          }
+          button {
+            &.prev-btn {
+              left: 5px;
+            }
+            &.next-btn {
+              right: 2px;
+            }
+          }
+        }
       }
       .right {
         color: #000;
