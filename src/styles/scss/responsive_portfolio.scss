@@ -28,15 +28,16 @@
         .slider-container {
           .img-wrap {
             .img {
-              height: 188px !important;
+              height: auto;
+              width: 100%;
             }
           }
           button {
             &.prev-btn {
-              left: 4px;
+              // left: 4px;
             }
             &.next-btn {
-              right: 11px;
+              // right: 11px;
             }
           }
         }
