@@ -79,7 +79,6 @@ const Portfolio = () => {
         "DocuGuard4",
         "DocuGuard5",
         "DocuGuard6",
-        "DocuGuard7",
       ],
     },
   ];

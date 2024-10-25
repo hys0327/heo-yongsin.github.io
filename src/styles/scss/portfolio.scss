@@ -79,47 +79,32 @@ body {
           transition: transform 0.5s ease;
           .img {
             display: none;
-            &.DocuGuard1 {
+            aspect-ratio: 496 / 268;
+            width: auto;
+            height: 250px;
+            /* &.DocuGuard1 {
               background: $bg-properties $img-docuguard-img1;
               width: auto;
               height: 250px;
-              aspect-ratio: 480 / 252;
+              aspect-ratio: 496 / 268;
+            } */
+            &.DocuGuard1 {
+              background: $bg-properties $img-docuguard-img1;
             }
             &.DocuGuard2 {
               background: $bg-properties $img-docuguard-img2;
-              width: auto;
-              height: 250px;
-              aspect-ratio: 480 / 252;
             }
             &.DocuGuard3 {
               background: $bg-properties $img-docuguard-img3;
-              width: auto;
-              height: 250px;
-              aspect-ratio: 480 / 252;
             }
             &.DocuGuard4 {
               background: $bg-properties $img-docuguard-img4;
-              width: auto;
-              height: 250px;
-              aspect-ratio: 480 / 252;
             }
             &.DocuGuard5 {
               background: $bg-properties $img-docuguard-img5;
-              width: auto;
-              height: 250px;
-              aspect-ratio: 480 / 252;
             }
             &.DocuGuard6 {
               background: $bg-properties $img-docuguard-img6;
-              width: auto;
-              height: 250px;
-              aspect-ratio: 480 / 252;
-            }
-            &.DocuGuard7 {
-              background: $bg-properties $img-docuguard-img7;
-              width: auto;
-              height: 250px;
-              aspect-ratio: 480 / 252;
             }
             &.active {
               display: block;
