@@ -51,6 +51,7 @@ const Portfolio = () => {
         "지그재그의 상품 구매 팝업, 무신사의 구매 내역 선택 기능 등을 적용하여 사용성을 높이고자 했습니다.",
       ],
       stack: "HTML, CSS, SCSS, JavaScript, React, Redux",
+      directory: "current",
     },
     {
       id: "Netflix",
@@ -61,6 +62,7 @@ const Portfolio = () => {
         "또한, 화면의 명확한 섹션 구분이 없어, 가독성이 떨어진다고 판단하였습니다.",
       ],
       stack: "HTML, CSS, SCSS, JavaScript, React, Redux",
+      directory: "current",
     },
     {
       id: "DocuGuard",
@@ -80,6 +82,19 @@ const Portfolio = () => {
         "DocuGuard5",
         "DocuGuard6",
       ],
+      directory: "current",
+    },
+    {
+      id: "shinhan",
+      type: "personal",
+      label: "Shinhan Bank 리디자인",
+      description: [
+        "신한은행 웹사이트를 리디자인하여 재구성한 웹사이트 입니다.",
+        "",
+        "",
+      ],
+      stack: "HTML, CSS, SCSS, JavaScript",
+      directory: "external",
     },
   ];
 
@@ -125,6 +140,14 @@ const Portfolio = () => {
         (prev[projectId] + 1) %
         projects.find((p) => p.id === projectId).images.length,
     }));
+  };
+
+  const openExternalProject = (url, title, width, height) => {
+    window.open(
+      url,
+      title,
+      `width=${width}, height=${height}, noopener, noreferrer`
+    );
   };
 
   return (
@@ -231,8 +254,17 @@ const Portfolio = () => {
                 <button
                   className="submenu-btn"
                   onClick={() => {
-                    setSelectedWork(project.id);
-                    setShowMobileView(true);
+                    if (project.directory === "external") {
+                      openExternalProject(
+                        `https://hys0327.github.io/js-project/${project.id}`,
+                        `${project.label} project`,
+                        1920,
+                        1080
+                      );
+                    } else {
+                      setSelectedWork(project.id);
+                      setShowMobileView(true);
+                    }
                   }}
                 >
                   Mobile View
