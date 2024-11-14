@@ -143,6 +143,7 @@ const Portfolio = () => {
   };
 
   const openExternalProject = (url, title, width, height) => {
+    console.log('url', url);
     window.open(
       url,
       title,
@@ -258,8 +259,8 @@ const Portfolio = () => {
                       openExternalProject(
                         `https://hys0327.github.io/js-project/${project.id}/pages/home`,
                         `${project.label} project`,
-                        1920,
-                        1080
+                        430,
+                        932
                       );
                     } else {
                       setSelectedWork(project.id);
@@ -275,8 +276,17 @@ const Portfolio = () => {
                     if (window.innerWidth <= 932) {
                       alert('데스크탑 환경에서만 가능합니다.');
                     } else {
-                      setSelectedWork(project.id);
-                      setShowDesktopView(true);
+                      if (project.directory === 'external') {
+                        openExternalProject(
+                          `https://hys0327.github.io/js-project/${project.id}/pages/home`,
+                          `${project.label} project`,
+                          1920,
+                          1080
+                        );
+                      } else {
+                        setSelectedWork(project.id);
+                        setShowMobileView(true);
+                      }
                     }
                   }}
                 >
