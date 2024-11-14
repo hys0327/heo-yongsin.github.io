@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 body {
   height: 100vh;
@@ -67,6 +67,9 @@ body {
         }
         &.Netflix {
           background: $bg-properties $img-netflix-mockup;
+        }
+        &.shinhan {
+          background: $bg-properties $img-shinhan-mockup;
         }
       }
       .slider-container {
