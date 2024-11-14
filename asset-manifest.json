@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/heo-yongsin.github.io/static/css/main.0d51c6a4.css",
-    "main.js": "/heo-yongsin.github.io/static/js/main.608c853d.js",
+    "main.css": "/heo-yongsin.github.io/static/css/main.e097e19b.css",
+    "main.js": "/heo-yongsin.github.io/static/js/main.eb17e885.js",
     "static/media/Netflix-Mockup.png": "/heo-yongsin.github.io/static/media/Netflix-Mockup.8828c86aae0cedd1b384.png",
     "static/media/KKST-Mockup.png": "/heo-yongsin.github.io/static/media/KKST-Mockup.19a7525d3156a41cadb5.png",
+    "static/media/Shinhan-Mockup.png": "/heo-yongsin.github.io/static/media/Shinhan-Mockup.bc8e7e80c5f41284c5b8.png",
     "static/media/profile-img.jpg": "/heo-yongsin.github.io/static/media/profile-img.77eb0a22e8be987a3df5.jpg",
     "static/media/DocuGuard-img2.png": "/heo-yongsin.github.io/static/media/DocuGuard-img2.f95e8894308a08abe8de.png",
     "static/media/DocuGuard-img6.png": "/heo-yongsin.github.io/static/media/DocuGuard-img6.008566f50c11704c6d57.png",
@@ -24,11 +25,11 @@
     "index.html": "/heo-yongsin.github.io/index.html",
     "static/media/icon_hambuger.svg": "/heo-yongsin.github.io/static/media/icon_hambuger.6e2d206ab3daabde3015.svg",
     "static/media/icon_about2.svg": "/heo-yongsin.github.io/static/media/icon_about2.1ed022a6dfb6fb8cfe31.svg",
-    "main.0d51c6a4.css.map": "/heo-yongsin.github.io/static/css/main.0d51c6a4.css.map",
-    "main.608c853d.js.map": "/heo-yongsin.github.io/static/js/main.608c853d.js.map"
+    "main.e097e19b.css.map": "/heo-yongsin.github.io/static/css/main.e097e19b.css.map",
+    "main.eb17e885.js.map": "/heo-yongsin.github.io/static/js/main.eb17e885.js.map"
   },
   "entrypoints": [
-    "static/css/main.0d51c6a4.css",
-    "static/js/main.608c853d.js"
+    "static/css/main.e097e19b.css",
+    "static/js/main.eb17e885.js"
   ]
 }
