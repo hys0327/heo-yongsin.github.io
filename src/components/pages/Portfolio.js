@@ -89,9 +89,8 @@ const Portfolio = () => {
       type: 'personal',
       label: 'Shinhan Bank 리디자인',
       description: [
-        '신한은행 웹사이트를 리디자인하여 재구성한 웹사이트 입니다.',
-        '',
-        '',
+        '헤더 메뉴의 하위 메뉴 팝업을 새롭게 구성하여, 모든 하위 메뉴를 표현할 수 있도록 수정하였습니다.',
+        '가독성이 낮은 게시판 ui 및 폰트를 수정하여 개선하였습니다.',
       ],
       stack: 'HTML, CSS, SCSS, JavaScript',
       directory: 'external',
