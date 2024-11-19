@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 // 데스크탑
 @media screen and (min-width: 1368px) {
@@ -71,7 +71,7 @@
                             &.icon {
                               &.icon_search {
                                 background: no-repeat center / cover
-                                  url("../icons/icon_search.svg");
+                                  url('../icons/icon_search.svg');
                                 width: 20px;
                                 aspect-ratio: 1 / 1;
                               }
@@ -90,14 +90,14 @@
                         &.icon {
                           &.icon_user {
                             background: no-repeat center / cover
-                              url("../icons/icon_user.svg");
+                              url('../icons/icon_user.svg');
                             width: 24px;
                             aspect-ratio: 1 / 1;
                             margin-right: 30px;
                           }
                           &.icon_cart {
                             background: no-repeat center / cover
-                              url("../icons/icon_cart.svg");
+                              url('../icons/icon_cart.svg');
                             width: 24px;
                             aspect-ratio: 1 / 1;
                           }
@@ -146,10 +146,10 @@
                                 &.icon {
                                   &.icon_arrow {
                                     background: no-repeat center / cover
-                                      url("../icons/icon_arrow_right.svg");
-                                    width: 12px;
+                                      url(../icons/icon_arrow_right.svg);
+                                    width: 8px;
                                     aspect-ratio: 6.89 / 12.45;
-                                    margin: 0 6px;
+                                    margin: 0 12px;
                                   }
                                 }
                               }
@@ -161,7 +161,7 @@
                             }
                             .review {
                               margin-bottom: 15px;
-                              input[type="button"] {
+                              input[type='button'] {
                                 appearance: none;
                                 border: none;
                                 background: none;
@@ -177,10 +177,14 @@
                                   align-items: center;
                                   span {
                                     &.icon_review {
-                                      background: $bg-properties $icon-review;
+                                      background: no-repeat center / cover
+                                        url('../icons/icon_review.svg');
                                       width: 14px;
                                       aspect-ratio: 1 / 1;
                                       margin-right: 6px;
+                                      filter: invert(82%) sepia(34%)
+                                        saturate(6377%) hue-rotate(332deg)
+                                        brightness(103%) contrast(104%);
                                       &:last-child {
                                         margin: 0;
                                       }
@@ -275,18 +279,18 @@
                               margin-right: 20px;
                               &.black {
                                 background: $bg-properties
-                                  url("../images/thumb_large_black.png");
+                                  url('../images/thumb_large_black.png');
                               }
                               &.green {
                                 background: $bg-properties
-                                  url("../images/thumb_large_green.png");
+                                  url('../images/thumb_large_green.png');
                                 &.selected {
                                   border: 2px solid #333;
                                 }
                               }
                               &.ivory {
                                 background: $bg-properties
-                                  url("../images/thumb_large_ivory.png");
+                                  url('../images/thumb_large_ivory.png');
                               }
                               &:last-child {
                                 margin: none;
@@ -299,7 +303,7 @@
                         .event-app {
                           margin-bottom: 50px;
                           background: $bg-properties
-                            url("../images/img_banner_app.png");
+                            url('../images/img_banner_app.png');
                           width: 100%;
                           aspect-ratio: 900 / 180;
                           cursor: pointer;
@@ -322,13 +326,13 @@
                                 min-width: 100%;
                                 &:nth-child(1) {
                                   background: $bg-properties
-                                    url("../images/img_event1.jpg");
+                                    url('../images/img_event1.jpg');
                                   width: 100%;
                                   aspect-ratio: 1000 / 504;
                                 }
                                 &:nth-child(2) {
                                   background: $bg-properties
-                                    url("../images/img_event2.jpg");
+                                    url('../images/img_event2.jpg');
                                   width: 100%;
                                   aspect-ratio: 1000 / 504;
                                 }
@@ -395,27 +399,27 @@
                               }
                               &:nth-child(1) {
                                 background: $bg-properties
-                                  url("../images/ant-prod1.jpg");
+                                  url('../images/ant-prod1.jpg');
                                 aspect-ratio: 174 / 232;
                               }
                               &:nth-child(2) {
                                 background: $bg-properties
-                                  url("../images/ant-prod2.jpg");
+                                  url('../images/ant-prod2.jpg');
                                 aspect-ratio: 174 / 232;
                               }
                               &:nth-child(3) {
                                 background: $bg-properties
-                                  url("../images/ant-prod3.jpg");
+                                  url('../images/ant-prod3.jpg');
                                 aspect-ratio: 174 / 232;
                               }
                               &:nth-child(4) {
                                 background: $bg-properties
-                                  url("../images/ant-prod4.jpg");
+                                  url('../images/ant-prod4.jpg');
                                 aspect-ratio: 174 / 232;
                               }
                               &:nth-child(5) {
                                 background: $bg-properties
-                                  url("../images/ant-prod5.jpg");
+                                  url('../images/ant-prod5.jpg');
                                 aspect-ratio: 174 / 232;
                               }
                             }
@@ -476,17 +480,17 @@
                           }
                           .cody1 {
                             background: no-repeat center / cover
-                              url("../images/thumb_cody1.jpg");
+                              url('../images/thumb_cody1.jpg');
                             aspect-ratio: 132 / 176;
                           }
                           .cody2 {
                             background: no-repeat center / cover
-                              url("../images/thumb_cody2.jpg");
+                              url('../images/thumb_cody2.jpg');
                             aspect-ratio: 132 / 176;
                           }
                           .cody3 {
                             background: no-repeat center / cover
-                              url("../images/thumb_cody3.jpg");
+                              url('../images/thumb_cody3.jpg');
                             aspect-ratio: 132 / 176;
                           }
                         }
@@ -609,7 +613,7 @@
                               display: inline-block;
                               &.icon {
                                 background: no-repeat center / cover
-                                  url("../icons/icon_close.svg");
+                                  url('../icons/icon_close.svg');
                                 width: 14px;
                                 aspect-ratio: 1 / 1;
                               }
@@ -643,13 +647,13 @@
                             .icon {
                               &.icon_minus {
                                 background: no-repeat center / cover
-                                  url("../icons/icon_minus.svg");
+                                  url('../icons/icon_minus.svg');
                                 width: 20px;
                                 aspect-ratio: 14 / 1.5;
                               }
                               &.icon_plus {
                                 background: no-repeat center / cover
-                                  url("../icons/icon_plus.svg");
+                                  url('../icons/icon_plus.svg');
                                 width: 20px;
                                 aspect-ratio: 11.5 / 11.5;
                               }

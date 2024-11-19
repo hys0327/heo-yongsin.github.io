@@ -1,12 +1,12 @@
 // svg 색상 편집: https://codepen.io/sosuke/pen/Pjoqqp
 
 // reset.css
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
 body {
   margin: 0; // 기본 margin 리셋
   padding: 0; // 기본 padding 리셋
-  font-family: "Pretendard", sans-serif;
+  font-family: 'Pretendard', sans-serif;
 }
 
 html,
@@ -131,7 +131,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -158,4 +158,9 @@ button {
   font: inherit;
   color: inherit;
   cursor: pointer;
+}
+a {
+  // text-decoration: none;
+  outline: none;
+  color: inherit;
 }
