@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { createRoot } from "react-dom/client";
+import { useEffect, useRef } from 'react';
+import { createRoot } from 'react-dom/client';
 
 const NewWindowPortal = ({
   children,
@@ -9,17 +9,16 @@ const NewWindowPortal = ({
   onClose,
   selectedWork,
 }) => {
-  console.log(selectedWork);
-
-  console.log(width);
+  // console.log(selectedWork);
+  // console.log(width);
 
   const newWindow = useRef(null); // useRef로 창을 관리 (상태가 아님)
 
   useEffect(() => {
     // 새 창 열기
     newWindow.current = window.open(
-      "",
-      "_blank",
+      '',
+      '_blank',
       `width=${width},height=${height},toolbar=no,menubar=no,scrollbars=no,resizable=no`
     );
 
@@ -27,14 +26,14 @@ const NewWindowPortal = ({
     const doc = newWindow.current.document;
 
     // selectedWork에 따라 동적으로 스타일 시트 변경
-    let stylesheets = "";
-    if (selectedWork === "KKST") {
+    let stylesheets = '';
+    if (selectedWork === 'KKST') {
       stylesheets = `
         <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/reset.css" />
         <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/kkst.css" />
         <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/responsive_kkst.css" />
       `;
-    } else if (selectedWork === "Netflix") {
+    } else if (selectedWork === 'Netflix') {
       stylesheets = `
         <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/reset.css" />
         <link rel="stylesheet" href="${process.env.PUBLIC_URL}/styles/netflix.css" />
@@ -58,7 +57,7 @@ const NewWindowPortal = ({
     doc.close();
 
     // React 컴포넌트를 새 창에 렌더링
-    const container = doc.getElementById("project");
+    const container = doc.getElementById('project');
     const root = createRoot(container);
     root.render(children);
 
@@ -73,11 +72,11 @@ const NewWindowPortal = ({
       }
     };
 
-    newWindow.current.addEventListener("beforeunload", cleanup);
+    newWindow.current.addEventListener('beforeunload', cleanup);
 
     // useEffect가 종료될 때 창을 닫고 정리 작업을 수행
     return () => {
-      newWindow.current.removeEventListener("beforeunload", cleanup);
+      newWindow.current.removeEventListener('beforeunload', cleanup);
       cleanup();
     };
   }, [children, title, width, height, onClose, selectedWork]); // 창을 한 번만 열고 관리

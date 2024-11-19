@@ -102,7 +102,7 @@ const Portfolio = () => {
       ? projects
       : projects.filter((project) => project.type === filter);
 
-  console.log('filteredProjects', filteredProjects);
+  // console.log('filteredProjects', filteredProjects);
 
   const [currentSlide, setCurrentSlide] = useState({});
 
@@ -235,13 +235,11 @@ const Portfolio = () => {
               <div className='desc'>
                 <h4 className='title'>프로젝트 내용</h4>
                 <div className='text-wrap'>
-                  <p className='text'>
-                    {project.description.map((line, index) => (
-                      <p key={index} className='text'>
-                        {line}
-                      </p>
-                    ))}
-                  </p>
+                  {project.description.map((line, index) => (
+                    <p key={index} className='text'>
+                      {line}
+                    </p>
+                  ))}
                 </div>
               </div>
               <div className='skill'>

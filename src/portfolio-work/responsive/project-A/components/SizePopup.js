@@ -1,5 +1,5 @@
 // SizePopup.js
-import React from "react";
+import React from 'react';
 
 const SizePopup = ({
   setPopupVisible,
@@ -8,44 +8,42 @@ const SizePopup = ({
   handleProductSelectFromPopup,
   selectedProduct,
 }) => {
-  console.log("selectedProduct: {} ", selectedProduct);
+  console.log('purchasedProducts', purchasedProducts);
   return (
     <>
-      <div className="popup size">
-        <div className="p_header">
+      <div className='popup size'>
+        <div className='p_header'>
           <h1>구매 내역</h1>
           <span
-            className="icon icon_close"
+            className='icon icon_close'
             onClick={() => setPopupVisible(false)}
           ></span>
         </div>
-        <div className="item_wrap">
+        <div className='item_wrap'>
           {purchasedProducts.map((product, index) => (
             <div
               key={index}
               className={`item ${
-                selectedProduct === product.name ? "selected" : "notSelected"
+                selectedProduct === product.name ? 'selected' : 'notSelected'
               }`}
             >
               <div className={`prod_img${index + 1}`}></div>
-              <div className="r_content">
-                <div className="prod_info">
-                  <p className="brand_name">{product.name}</p>
-                  <p className="prod_name">{productData[product.name].name}</p>
-                  <p className="prod_size">
-                    사이즈: {productData[product.name].purchasedSize}
-                  </p>
+              <div className='r_content'>
+                <div className='prod_info'>
+                  <p className='brand_name'>{product.name}</p>
+                  <p className='prod_name'>{product.prodName}</p>
+                  <p className='prod_size'>사이즈: {product.purchasedSize}</p>
                 </div>
                 <button
                   className={
                     selectedProduct === product.name
-                      ? "selected"
-                      : "notSelected"
+                      ? 'selected'
+                      : 'notSelected'
                   }
                   onClick={() => handleProductSelectFromPopup(product)}
                   disabled={selectedProduct === product.name}
                 >
-                  {selectedProduct === product.name ? "선택" : "미 선택"}
+                  {selectedProduct === product.name ? '선택' : '미 선택'}
                 </button>
               </div>
             </div>
