@@ -275,6 +275,7 @@ const Portfolio = () => {
                     if (window.innerWidth <= 932) {
                       alert('데스크탑 환경에서만 가능합니다.');
                     } else {
+                      // console.log('경로', project.directory);
                       if (project.directory === 'external') {
                         openExternalProject(
                           `https://hys0327.github.io/js-project/${project.id}/pages/home`,
@@ -284,7 +285,7 @@ const Portfolio = () => {
                         );
                       } else {
                         setSelectedWork(project.id);
-                        setShowMobileView(true);
+                        setShowDesktopView(true);
                       }
                     }
                   }}
